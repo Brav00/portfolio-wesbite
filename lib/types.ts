@@ -8,7 +8,7 @@ export type Project = {
   title: string;
   client: string;
   industry: string;
-  engagementType: string;
+  engagementType?: string;
   categories: string[];
   thumbnail: string;
   videoUrl: string;
@@ -18,9 +18,6 @@ export type Project = {
   solution: string;
   result: string;
   screenshot: string;
-  testimonial: {
-    quote: string;
-    attribution: string;
-  };
+  testimonial: { quote: string; attribution: string } | null;
   featured: boolean;
 };

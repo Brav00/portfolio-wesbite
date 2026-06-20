@@ -6,40 +6,53 @@ import { TestimonialCard } from '@/components/TestimonialCard';
 
 const featuredProjects = projects.filter((p) => p.featured);
 
-const homepageTestimonial = {
-  quote:
-    "Ahmer doesn't just give you a strategy document and disappear. He builds the system, trains the team, and stays until it's working. That combination is genuinely rare.",
-  attribution: 'Founder, B2B technology company',
-};
+const homepageTestimonials = [
+  {
+    quote:
+      'Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.',
+    attribution: 'Muhammad Akif, CEO, Techling.ai',
+  },
+  {
+    quote:
+      "Ahmer knows his stuff when it comes to cold emailing. We signed multiple clients while working together and fully delegated the work to him with minimal communication needed.",
+    attribution: 'Daryl Rosser, Logeix',
+  },
+  {
+    quote:
+      "What sets Ahmer apart is not just his expertise, but his work ethic and dedication. He's proactive, detail-oriented, and deeply committed to delivering results.",
+    attribution: 'Muhammad Ammar, Director, Techling Healthcare',
+  },
+];
 
 const stack: Record<string, string[]> = {
   'SEO & local search': [
-    'Ahrefs',
-    'Semrush',
-    'Screaming Frog',
+    'SemRush',
+    'Moz',
     'Google Search Console',
-    'BrightLocal',
+    'Google Analytics',
     'Google Business Profile',
   ],
   'Outbound & GTM': [
-    'Apollo',
-    'Outreach',
-    'Clay',
-    'HubSpot',
-    'LinkedIn Sales Navigator',
-    'Lemlist',
+    'Smartlead',
+    'EmailBison',
+    'Apollo.io',
+    'HeyReach',
+    'Sales Navigator',
+    'HubSpot CRM',
+    'Reoon',
+    'BounceBan',
+    'LeadMagic',
   ],
-  'AI tooling': ['Claude', 'ChatGPT', 'Perplexity'],
-  'Project & client management': ['Notion', 'Loom', 'Slack', 'Linear'],
+  'AI tooling': ['Clay', 'ChatGPT', 'Claude', 'Claude Code', 'Apify'],
+  'Project & client management': ['HubSpot CRM', 'Google Sheets'],
+  'Content & design': ['Canva', 'Taplio'],
 };
 
 const recognition = [
-  { year: '2024', description: 'Google Analytics 4 certification' },
-  { year: '2023', description: 'HubSpot content marketing certification' },
-  { year: '2022', description: 'Launched independent practice after 15+ years in-house and agency' },
-  { year: '2018', description: 'Semrush Academy SEO fundamentals certification' },
-  { year: '2015', description: 'Promoted to head of digital, [Agency name — placeholder]' },
-  { year: '2010', description: 'BSc Marketing, [University name — placeholder]' },
+  { year: '2025', description: 'GTM Engineering, Cohort 2, GTM Engineer School' },
+  { year: '2020', description: 'Paid Traffic Mastery, E-commerce Marketing Mastery, Social Media Mastery — Digital Marketer certifications' },
+  { year: '2019', description: 'Personal Branding certification, Lemlist' },
+  { year: '2016–2020', description: 'BSc Computer Science and Programming, FAST NUCES, Pakistan' },
 ];
 
 export default function Home() {
@@ -57,8 +70,8 @@ export default function Home() {
               I help home services and B2B companies grow through SEO, GTM, and outbound
             </h1>
             <p className="text-muted text-lg leading-relaxed mb-8 max-w-xl">
-              15+ years across two agencies and as an independent consultant. 9+ documented case
-              studies with measurable results.
+              6 years of hands-on work across SEO, cold outbound, and GTM — with {projects.length}+ documented case
+              studies spanning B2B SaaS, e-commerce, and agencies.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -80,7 +93,7 @@ export default function Home() {
           <div className="w-full md:w-[38%] flex-shrink-0">
             <div className="relative w-full aspect-[5/6] rounded-2xl overflow-hidden bg-[#e5e3de]">
               <Image
-                src="/images/placeholder-headshot.svg"
+                src="/images/headshot.png"
                 alt="Ahmer Mehmood"
                 fill
                 className="object-cover"
@@ -98,17 +111,16 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-6">What I do</h2>
           <div className="max-w-2xl space-y-4">
             <p className="text-muted leading-relaxed">
-              I run two practices side by side. One is client-facing delivery — SEO campaigns,
-              outbound programmes, and GTM engagements for home services and B2B companies where
-              I&apos;m hands-on with execution, not just strategy. The other is systems and
-              operations work: helping founders and sales leaders build the infrastructure that
-              makes growth repeatable and measurable.
+              I work across three things: SEO (technical and content), cold outbound (email and
+              LinkedIn), and GTM strategy — positioning, ICP definition, and the systems that
+              tie growth together. Most of my clients are B2B companies and agencies that need
+              results, not decks.
             </p>
             <p className="text-muted leading-relaxed">
-              Both come from the same roots: 15+ years of doing the actual work, in-house and at
-              agencies, before going independent. Most consultants come from one world or the
-              other. Working across both means I understand what breaks when strategy meets
-              execution — and how to prevent it.
+              I started in SEO, moved into lead generation and outbound, and picked up GTM as the
+              natural connective tissue between them. With AI in the mix now, that range has
+              turned into being a T-shaped technical marketer — able to move fast across channels
+              and build things that actually run.
             </p>
           </div>
         </div>
@@ -121,8 +133,8 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
           <TestimonialCard
-            quote={homepageTestimonial.quote}
-            attribution={homepageTestimonial.attribution}
+            quote={homepageTestimonials[0].quote}
+            attribution={homepageTestimonials[0].attribution}
           />
         </div>
       </section>
@@ -135,30 +147,31 @@ export default function Home() {
             <div>
               <h3 className="text-base font-semibold text-primary mb-3">Who I am</h3>
               <p className="text-muted text-sm leading-relaxed">
-                Based in [city — placeholder]. 15+ years in marketing and growth, working with
-                everyone from local home services businesses to Series B SaaS companies. Currently
-                building a personal brand around GTM frameworks for B2B operators and sharing the
-                systems that have actually worked in the field.
+                Based in Australia. A tech guy turned marketer, fascinated by what actually moves
+                people to decide. 6 years in, across SEO, cold outbound, and GTM — with a CS
+                degree from FAST NUCES that still shows in how I think about systems and
+                automation.
               </p>
             </div>
             <div>
               <h3 className="text-base font-semibold text-primary mb-3">The journey</h3>
               <p className="text-muted text-sm leading-relaxed">
-                Started in-house at a regional company learning every part of the marketing
-                function from the ground up. Moved into agency life where I led accounts across
-                home services and professional services verticals, eventually heading up the
-                digital team. After 15+ years accumulating systems that consistently worked, I
-                took those independent and haven&apos;t looked back.
+                It started in a 2019 semester break, learning SEO through a friend&apos;s
+                recommendation and a stack of Coursera courses. When COVID hit, Digital Marketer
+                opened its paid courses free — I put in 16-hour days and got through as much as
+                I could. That led into lead generation and cold email, chasing the idea of running
+                my own agency. Two failed attempts later, I realised the real asset wasn&apos;t
+                any single skill — it was the range.
               </p>
             </div>
             <div>
               <h3 className="text-base font-semibold text-primary mb-3">How I work</h3>
               <p className="text-muted text-sm leading-relaxed">
-                Direct, documented, measurable. Every engagement ends with something you can hand
-                to the next person — a playbook, a system, a trained team. I work better with
-                operators than with brand marketers because the people I work best with care about
-                what the numbers say at the end of the quarter, not what the slide deck looked
-                like.
+                Today, with AI and LLMs in the mix, that range has turned into being a T-shaped
+                technical marketer. I build things that run — outbound systems, SEO foundations,
+                GTM frameworks — and I document them so they keep running after I&apos;m gone.
+                I work best with founders and operators who care about what the numbers say, not
+                how the deck looks.
               </p>
             </div>
           </div>
@@ -221,10 +234,10 @@ export default function Home() {
             early.
           </p>
           <a
-            href="mailto:hello@ahmermehmood.com"
+            href="mailto:ahmer.subhani02@gmail.com"
             className="text-accent font-semibold hover:text-accent/80 transition-colors"
           >
-            hello@ahmermehmood.com
+            ahmer.subhani02@gmail.com
           </a>
         </div>
       </section>

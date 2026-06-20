@@ -66,7 +66,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* Subheading */}
       <p className="text-secondary mb-10">
-        {project.client} · {project.industry} · {project.engagementType}
+        {project.client} · {project.industry}{project.engagementType ? ` · ${project.engagementType}` : ''}
       </p>
 
       {/* Video */}
@@ -113,12 +113,14 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* Testimonial */}
-      <div className="mb-16">
-        <TestimonialCard
-          quote={project.testimonial.quote}
-          attribution={project.testimonial.attribution}
-        />
-      </div>
+      {project.testimonial && (
+        <div className="mb-16">
+          <TestimonialCard
+            quote={project.testimonial.quote}
+            attribution={project.testimonial.attribution}
+          />
+        </div>
+      )}
 
       {/* Next case study */}
       <div className="border-t border-black/[0.06] pt-10 flex items-center justify-between">

@@ -7,7 +7,7 @@ export function Footer() {
         <p className="text-sm text-secondary">© Ahmer Mehmood {year}</p>
         <div className="flex items-center gap-6">
           <a
-            href="https://linkedin.com/in/ahmermehmood"
+            href="https://www.linkedin.com/in/ahmer-mehmood-subhani/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-secondary hover:text-primary transition-colors"
@@ -15,7 +15,7 @@ export function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://github.com/ahmermehmood"
+            href="https://github.com/Brav00"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-secondary hover:text-primary transition-colors"
