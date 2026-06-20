@@ -1,0 +1,6 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#e5e3de"/>
+  <rect x="560" y="300" width="160" height="120" rx="8" fill="#c5c3be"/>
+  <polygon points="620,330 620,390 680,360" fill="#faf9f6"/>
+  <text x="640" y="450" font-family="system-ui, sans-serif" font-size="28" fill="#888780" text-anchor="middle">Project thumbnail</text>
+</svg>
