@@ -22,9 +22,9 @@ function fmt(n: number, hasComma: boolean, suffix: string) {
   return Number.isInteger(n) ? String(Math.round(n)) : n.toFixed(1);
 }
 
-type Props = { value: string; className?: string };
+type Props = { value: string; className?: string; style?: React.CSSProperties };
 
-export function CountUp({ value, className }: Props) {
+export function CountUp({ value, className, style }: Props) {
   const parsed = parse(value);
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
@@ -53,10 +53,10 @@ export function CountUp({ value, className }: Props) {
     requestAnimationFrame(tick);
   }, [started]);
 
-  if (!parsed) return <span className={className}>{value}</span>;
+  if (!parsed) return <span className={className} style={style}>{value}</span>;
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {parsed.prefix}{fmt(count, parsed.hasComma, parsed.suffix)}{parsed.suffix}
     </span>
   );
