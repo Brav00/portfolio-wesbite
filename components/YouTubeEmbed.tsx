@@ -1,6 +1,6 @@
 'use client';
 
-import { getYouTubeId } from '@/lib/utils';
+import { getYouTubeId, getLoomId } from '@/lib/utils';
 
 type Props = {
   url: string;
@@ -8,15 +8,22 @@ type Props = {
 };
 
 export function YouTubeEmbed({ url, title }: Props) {
-  const videoId = getYouTubeId(url);
+  const youtubeId = getYouTubeId(url);
+  const loomId = getLoomId(url);
+
+  const embedSrc = youtubeId
+    ? `https://www.youtube.com/embed/${youtubeId}`
+    : loomId
+    ? `https://www.loom.com/embed/${loomId}`
+    : null;
 
   return (
     <div className="relative w-full aspect-video bg-dark-block rounded-xl overflow-hidden">
-      {videoId ? (
+      {embedSrc ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={embedSrc}
           title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           allowFullScreen
           className="absolute inset-0 w-full h-full"
         />
