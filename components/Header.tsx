@@ -12,6 +12,13 @@ export function Header() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (!isDigitalMarketing) return;
@@ -48,7 +55,10 @@ export function Header() {
       ];
 
   return (
-    <header className="sticky top-0 z-50 bg-page-bg border-b border-black/[0.06]">
+    <header
+      className={`sticky top-0 z-50 border-b border-black/[0.06] transition-all duration-300 ${scrolled ? 'backdrop-blur-md shadow-sm' : ''}`}
+      style={{ backgroundColor: scrolled ? 'rgba(250,249,246,0.85)' : '#faf9f6' }}
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
@@ -76,13 +86,26 @@ export function Header() {
             );
           })}
           {isDigitalMarketing ? (
-            <a
-              href="#contact"
-              className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
-              style={{ backgroundColor: '#1E3A5F' }}
-            >
-              Get in touch
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="/resume.pdf"
+                download="Ahmer_Mehmood_Digital_Marketing_Resume.pdf"
+                className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors hover:bg-[#EFF6FF]"
+                style={{ borderColor: '#1E3A5F', color: '#1E3A5F' }}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Resume
+              </a>
+              <a
+                href="#contact"
+                className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#1E3A5F' }}
+              >
+                Get in touch
+              </a>
+            </div>
           ) : (
             <Link
               href="/projects"
@@ -129,14 +152,28 @@ export function Header() {
             );
           })}
           {isDigitalMarketing ? (
-            <a
-              href="#contact"
-              className="px-4 py-2 text-sm font-semibold text-white rounded-lg text-center transition-opacity hover:opacity-90"
-              style={{ backgroundColor: '#1E3A5F' }}
-              onClick={() => setMenuOpen(false)}
-            >
-              Get in touch
-            </a>
+            <>
+              <a
+                href="/resume.pdf"
+                download="Ahmer_Mehmood_Digital_Marketing_Resume.pdf"
+                className="flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors hover:bg-[#EFF6FF]"
+                style={{ borderColor: '#1E3A5F', color: '#1E3A5F' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download Resume
+              </a>
+              <a
+                href="#contact"
+                className="px-4 py-2 text-sm font-semibold text-white rounded-lg text-center transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#1E3A5F' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                Get in touch
+              </a>
+            </>
           ) : (
             <Link
               href="/projects"

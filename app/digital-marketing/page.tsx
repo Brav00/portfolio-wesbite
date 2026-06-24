@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/FadeIn';
 import { CountUp } from '@/components/CountUp';
 import { BackToTop } from '@/components/BackToTop';
 import { CopyButton } from '@/components/CopyButton';
+import { WaveDivider } from '@/components/WaveDivider';
 import { formatCategoryLabel } from '@/lib/utils';
 import rawData from '@/data/projects_updated.json';
 
@@ -68,16 +69,42 @@ const WHAT_I_DO_ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
+const WHAT_I_DO_BULLETS: Record<string, string[]> = {
+  SEO:          ['Technical site audits', 'On-page content optimisation', 'Local & programmatic SEO'],
+  'Google Ads': ['Search & shopping campaigns', 'Full-funnel keyword strategy', 'Conversion tracking & reporting'],
+  Content:      ['Blog & landing page production', 'SEO-aligned editorial calendars', 'Content briefs & tone-of-voice'],
+  Social:       ['LinkedIn content strategy', 'Founder brand building', 'Audience growth campaigns'],
+  AI:           ['AI content & research workflows', 'Clay & Apify automation', 'Reporting at scale'],
+};
+
+const BG = {
+  warm:  '#faf9f6',
+  blue:  '#EFF6FF',
+  navy:  '#1E3A5F',
+} as const;
+
 export default function DigitalMarketingPage() {
   return (
     <>
       <BackToTop />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="pt-20 pb-16 md:pt-28 md:pb-24">
+      <section className="pt-20 pb-16 md:pt-28 md:pb-24" style={{ backgroundColor: BG.warm }}>
         <div className="max-w-6xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1">
-            <p className="text-sm font-semibold tracking-wide mb-4" style={{ color: '#1E3A5F' }}>
+            {/* Shimmer tagline */}
+            <p
+              className="text-sm font-semibold tracking-wide mb-4"
+              style={{
+                background: `linear-gradient(90deg, ${BG.navy}, #4a7fb5, #93b4d4, #4a7fb5, ${BG.navy})`,
+                backgroundSize: '300% auto',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                color: 'transparent',
+                animation: 'shimmer-slide 4s linear infinite',
+              }}
+            >
               SEO · Google Ads · Content · AI Marketing
             </p>
             <h1 className="text-4xl md:text-5xl font-semibold text-primary leading-tight mb-6">
@@ -91,14 +118,14 @@ export default function DigitalMarketingPage() {
               <a
                 href="mailto:ahmer.subhani02@gmail.com"
                 className="px-6 py-3 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#1E3A5F' }}
+                style={{ backgroundColor: BG.navy }}
               >
                 Get in touch
               </a>
               <a
                 href="#case-studies"
                 className="px-6 py-3 border text-sm font-semibold rounded-xl transition-colors hover:bg-[#EFF6FF]"
-                style={{ borderColor: '#1E3A5F', color: '#1E3A5F' }}
+                style={{ borderColor: BG.navy, color: BG.navy }}
               >
                 See my work
               </a>
@@ -136,7 +163,7 @@ export default function DigitalMarketingPage() {
                 <div
                   key={badge.label}
                   className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
-                  style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                  style={{ backgroundColor: BG.blue, color: BG.navy }}
                 >
                   {badge.icon}
                   {badge.label}
@@ -160,8 +187,10 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
+      <WaveDivider from={BG.warm} to={BG.blue} />
+
       {/* ── Meet Ahmer ───────────────────────────────────────── */}
-      <section id="meet-ahmer" className="py-16 border-t border-black/[0.06]">
+      <section id="meet-ahmer" className="py-16" style={{ backgroundColor: BG.blue }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">Meet Ahmer.</h2>
@@ -171,8 +200,10 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.blue} to={BG.warm} flip />
+
       {/* ── Case Studies ─────────────────────────────────────── */}
-      <section id="case-studies" className="py-16 border-t border-black/[0.06]">
+      <section id="case-studies" className="py-16" style={{ backgroundColor: BG.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">Case studies.</h2>
@@ -185,15 +216,21 @@ export default function DigitalMarketingPage() {
                 {dmProjects.map((project) => (
                   <div
                     key={project.slug}
-                    className="group bg-card border border-black/[0.08] rounded-2xl p-6 flex flex-col transition-all duration-200 hover:shadow-md hover:border-[#1E3A5F]/25 hover:-translate-y-0.5"
+                    className="group relative bg-card border border-black/[0.08] rounded-2xl p-6 flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#1E3A5F]/30 hover:-translate-y-1.5"
                     style={{ width: '320px', flexShrink: 0 }}
                   >
+                    {/* Left accent bar */}
+                    <div
+                      className="absolute left-0 inset-y-0 w-[3px] rounded-l-2xl origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out"
+                      style={{ backgroundColor: BG.navy }}
+                    />
+
                     <div className="flex flex-wrap gap-2 mb-3">
                       {project.categories.map((cat) => (
                         <span
                           key={cat}
                           className="px-2.5 py-0.5 text-xs font-semibold rounded-full"
-                          style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                          style={{ backgroundColor: BG.blue, color: BG.navy }}
                         >
                           {formatCategoryLabel(cat)}
                         </span>
@@ -205,7 +242,7 @@ export default function DigitalMarketingPage() {
                     <p className="text-sm text-muted mb-2 flex-1">{project.oneLineResult}</p>
 
                     {/* Hover-reveal snippet */}
-                    <div className="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-300 ease-out">
+                    <div className="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-300 ease-out">
                       <p className="text-xs text-secondary leading-relaxed pb-3 pt-1 border-t border-black/[0.06] mt-1">
                         {project.solution.slice(0, 110).trim()}…
                       </p>
@@ -216,13 +253,13 @@ export default function DigitalMarketingPage() {
                         <div
                           key={stat.label}
                           className="flex-1 rounded-xl p-3 text-center"
-                          style={{ backgroundColor: '#EFF6FF' }}
+                          style={{ backgroundColor: BG.blue }}
                         >
                           <div className="flex items-center justify-center gap-1 mb-0.5">
-                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="#1E3A5F" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke={BG.navy} strokeWidth={2.5} viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                             </svg>
-                            <CountUp value={stat.value} className="text-lg font-semibold" style={{ color: '#1E3A5F' } as React.CSSProperties} />
+                            <CountUp value={stat.value} className="text-lg font-semibold" style={{ color: BG.navy } as React.CSSProperties} />
                           </div>
                           <p className="text-xs text-secondary">{stat.label}</p>
                         </div>
@@ -231,7 +268,7 @@ export default function DigitalMarketingPage() {
                     <Link
                       href={`/projects/${project.slug}`}
                       className="text-sm font-semibold transition-opacity hover:opacity-70"
-                      style={{ color: '#1E3A5F' }}
+                      style={{ color: BG.navy }}
                     >
                       Read case study →
                     </Link>
@@ -246,38 +283,63 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.warm} to={BG.navy} />
+
       {/* ── What I do ────────────────────────────────────────── */}
-      <section id="what-i-do" className="py-16 border-t border-black/[0.06]">
+      <section id="what-i-do" className="py-16" style={{ backgroundColor: BG.navy }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">What I do.</h2>
-            <p className="text-secondary text-sm mb-8">Five channels, one integrated approach.</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">What I do.</h2>
+            <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              Five channels, one integrated approach.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {whatIDo.slice(0, 4).map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
-                  <div className="bg-card border border-black/[0.08] rounded-2xl p-6 h-full">
+                  <div className="group bg-card border border-black/[0.08] rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-200">
                     <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                      style={{ backgroundColor: BG.blue, color: BG.navy }}
                     >
                       {WHAT_I_DO_ICONS[item.icon] ?? null}
                     </div>
                     <h3 className="text-base font-semibold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-muted leading-relaxed">{item.text}</p>
+                    {/* Hover bullet reveal */}
+                    <div className="overflow-hidden max-h-0 group-hover:max-h-28 transition-all duration-300 ease-out">
+                      <ul className="mt-3 pt-3 border-t border-black/[0.06] space-y-1.5">
+                        {(WHAT_I_DO_BULLETS[item.icon] ?? []).map((b) => (
+                          <li key={b} className="text-xs text-secondary flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BG.navy }} />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </FadeIn>
               ))}
               <div className="sm:col-span-2 flex sm:justify-center">
                 <FadeIn delay={320} className="w-full sm:w-[calc(50%-8px)]">
-                  <div className="bg-card border border-black/[0.08] rounded-2xl p-6">
+                  <div className="group bg-card border border-black/[0.08] rounded-2xl p-6 hover:shadow-lg transition-all duration-200">
                     <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                      style={{ backgroundColor: BG.blue, color: BG.navy }}
                     >
                       {WHAT_I_DO_ICONS[whatIDo[4].icon] ?? null}
                     </div>
                     <h3 className="text-base font-semibold text-primary mb-2">{whatIDo[4].title}</h3>
                     <p className="text-sm text-muted leading-relaxed">{whatIDo[4].text}</p>
+                    <div className="overflow-hidden max-h-0 group-hover:max-h-28 transition-all duration-300 ease-out">
+                      <ul className="mt-3 pt-3 border-t border-black/[0.06] space-y-1.5">
+                        {(WHAT_I_DO_BULLETS[whatIDo[4].icon] ?? []).map((b) => (
+                          <li key={b} className="text-xs text-secondary flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BG.navy }} />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </FadeIn>
               </div>
@@ -286,14 +348,16 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.navy} to={BG.warm} flip />
+
       {/* ── Tools I use ──────────────────────────────────────── */}
-      <section id="tools" className="py-16 border-t border-black/[0.06]">
+      <section id="tools" className="py-16" style={{ backgroundColor: BG.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex items-center gap-3 mb-2">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                style={{ backgroundColor: BG.blue, color: BG.navy }}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l5.654-4.654m5.896-1.183l3.184.53a1.5 1.5 0 01.82 2.503l-2.252 2.252a1.5 1.5 0 01-2.003.128l-.534-.4" />
@@ -314,8 +378,8 @@ export default function DigitalMarketingPage() {
                     {tools.map((tool) => (
                       <span
                         key={tool}
-                        className="px-3 py-1 text-xs font-semibold rounded-full"
-                        style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                        className="px-3 py-1 text-xs font-semibold rounded-full cursor-default transition-all duration-150 hover:scale-105 hover:shadow-md"
+                        style={{ backgroundColor: BG.blue, color: BG.navy }}
                       >
                         {tool}
                       </span>
@@ -328,14 +392,16 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.warm} to={BG.blue} />
+
       {/* ── Certifications ───────────────────────────────────── */}
-      <section id="certifications" className="py-16 border-t border-black/[0.06]">
+      <section id="certifications" className="py-16" style={{ backgroundColor: BG.blue }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex items-center gap-3 mb-12">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: '#EFF6FF', color: '#1E3A5F' }}
+                style={{ backgroundColor: '#dbeafe', color: BG.navy }}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
@@ -351,10 +417,10 @@ export default function DigitalMarketingPage() {
                     <div key={`${item.year}-${item.text}`} className="relative">
                       <span
                         className="absolute -left-[41px] top-0.5 w-3 h-3 rounded-full border-2"
-                        style={{ backgroundColor: '#EFF6FF', borderColor: '#1E3A5F' }}
+                        style={{ backgroundColor: BG.blue, borderColor: BG.navy }}
                       />
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>
+                        <span className="text-sm font-semibold" style={{ color: BG.navy }}>
                           {item.year}
                         </span>
                         {provider && (
@@ -376,8 +442,10 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.blue} to={BG.warm} flip />
+
       {/* ── Testimonials ─────────────────────────────────────── */}
-      <section id="testimonials" className="py-16">
+      <section id="testimonials" className="py-16" style={{ backgroundColor: BG.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <TestimonialSlider
@@ -400,8 +468,10 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
+      <WaveDivider from={BG.warm} to={BG.blue} />
+
       {/* ── Get in touch ─────────────────────────────────────── */}
-      <section id="contact" className="py-20 border-t border-black/[0.06]">
+      <section id="contact" className="py-20" style={{ backgroundColor: BG.blue }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">Get in touch</h2>
@@ -413,7 +483,7 @@ export default function DigitalMarketingPage() {
                 <a
                   href="mailto:ahmer.subhani02@gmail.com"
                   className="flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity"
-                  style={{ color: '#1E3A5F' }}
+                  style={{ color: BG.navy }}
                 >
                   <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75" />
@@ -425,14 +495,14 @@ export default function DigitalMarketingPage() {
               <a
                 href="tel:0438053591"
                 className="flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity"
-                style={{ color: '#1E3A5F' }}
+                style={{ color: BG.navy }}
               >
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                 </svg>
                 0438 053 591
               </a>
-              <div className="flex items-center gap-3 text-muted font-semibold">
+              <div className="flex items-center gap-3 font-semibold" style={{ color: BG.navy }}>
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -443,6 +513,8 @@ export default function DigitalMarketingPage() {
           </div>
         </FadeIn>
       </section>
+
+      <WaveDivider from={BG.blue} to={BG.warm} flip />
     </>
   );
 }

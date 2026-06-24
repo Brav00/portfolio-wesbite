@@ -37,3 +37,8 @@ body {
   from { width: 0% }
   to   { width: 100% }
 }
+
+@keyframes shimmer-slide {
+  from { background-position: 200% center; }
+  to   { background-position: -100% center; }
+}
