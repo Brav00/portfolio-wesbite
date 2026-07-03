@@ -3,6 +3,12 @@ export type ProjectStat = {
   label: string;
 };
 
+export type WorkflowStep = {
+  title: string;
+  description: string;
+  isResult?: boolean;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -11,13 +17,16 @@ export type Project = {
   engagementType?: string;
   categories: string[];
   thumbnail: string;
-  videoUrl: string;
+  videoUrl?: string;
   oneLineResult: string;
-  stats: [ProjectStat, ProjectStat];
+  stats: ProjectStat[];
   problem: string;
   solution: string;
   result: string;
-  screenshot: string;
+  screenshots: string[];
+  tools?: string[];
+  workflow?: WorkflowStep[];
+  workflowIntro?: string;
   testimonial: { quote: string; attribution: string } | null;
   featured: boolean;
 };

@@ -9,6 +9,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { CopyButton } from '@/components/CopyButton';
 import { WaveDivider } from '@/components/WaveDivider';
 import { formatCategoryLabel } from '@/lib/utils';
+import { BG } from '@/lib/colors';
 import rawData from '@/data/projects_updated.json';
 
 export const metadata: Metadata = {
@@ -76,12 +77,6 @@ const WHAT_I_DO_BULLETS: Record<string, string[]> = {
   Social:       ['LinkedIn content strategy', 'Founder brand building', 'Audience growth campaigns'],
   AI:           ['AI content & research workflows', 'Clay & Apify automation', 'Reporting at scale'],
 };
-
-const BG = {
-  warm:  '#faf9f6',
-  blue:  '#EFF6FF',
-  navy:  '#1E3A5F',
-} as const;
 
 export default function DigitalMarketingPage() {
   return (

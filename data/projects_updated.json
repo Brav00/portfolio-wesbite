@@ -16,7 +16,7 @@
       "problem": "When I joined, Techling relied on untrained sales reps and inconsistent Upwork leads, with little outbound success and no clear positioning.",
       "solution": "I built the growth engine end to end: defined mission, vision, USP, and ICPs (healthcare, edtech, mobility AI), repositioned the company, rebuilt the website, grew the CEO's personal brand, launched the Techling Healthcare sub-brand, set up cold email and LinkedIn outreach, and implemented HubSpot CRM.",
       "result": "The redesign generated 10 to 15 qualified leads in the first month, the founder brand reached 1.4M impressions, and the pipeline held $149.5K in open deal value across 17 active leads, with multiple five-figure deals closed.",
-      "screenshot": "/images/projects/techling-head-of-growth/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-head-of-growth/screenshot.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -39,7 +39,7 @@
       "problem": "To position Techling as a thought leader in AI and software, the CEO needed a targeted audience and real engagement with decision-makers, starting from almost nothing.",
       "solution": "I cleaned his connections to match the ICP, built a content calendar and posted daily across formats (stories, insights, carousels, case studies), iterated using data, and engaged strategically with influencers and ICP accounts.",
       "result": "Grew the profile from near zero to 8,000 targeted followers in 12 months, with 1.4M total impressions, 14,000+ engagements, and some posts passing 750,000 impressions.",
-      "screenshot": "/images/projects/techling-ceo-personal-brand/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-ceo-personal-brand/screenshot.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -48,21 +48,31 @@
     },
     {
       "slug": "logeix-cold-email",
-      "title": "A Multi Six-Figure Pipeline in Three Months",
+      "title": "A Custom-Built List Tool, $210K Pipeline in 3 Months",
       "client": "Logeix",
       "industry": "Shopify SEO agency, United Kingdom",
       "categories": ["outbound"],
       "thumbnail": "/images/projects/logeix-cold-email/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Built a multi six-figure sales pipeline in three months through cold email",
+      "videoUrl": "https://www.loom.com/share/faea43b6b8914b61a8102b098500b63c",
+      "oneLineResult": "Built a custom list-building tool before modern enrichment platforms existed, driving a $210K pipeline for a Shopify SEO agency in three months.",
       "stats": [
-        { "value": "Multi 6-figure", "label": "Sales pipeline built" },
-        { "value": "10%", "label": "Response rate" }
+        { "value": "70%", "label": "Open rate" },
+        { "value": "7-8%", "label": "Reply rate" },
+        { "value": "$210K", "label": "Pipeline generated ($60K closed, $150K active)" }
       ],
-      "problem": "Logeix needed a robust sales pipeline built through cold email, with deliverability as the central challenge in a landscape of strict spam filters.",
-      "solution": "I ran targeted cold email campaigns for their e-commerce ICP, researched market pain points to tailor messaging to Logeix's value proposition, maintained a clean prospect database, and tracked the pipeline in a CRM.",
-      "result": "Built a multi six-figure pipeline in three months with up to 70% open and 10% response rates, bringing in high-value clients and surpassing targets.",
-      "screenshot": "/images/projects/logeix-cold-email/screenshot.jpg",
+      "problem": "Logeix needed a reliable, repeatable way to book meetings and sign new clients for its Shopify SEO service. This was a productized offer, not a general retainer, so outreach needed to speak directly to a specific, well-defined type of prospect. At the time, there were no data enrichment tools like Clay, so list building had to be done manually or with custom tooling.",
+      "solution": "Built a custom Chrome extension to scrape prospect lists, since no enrichment platforms existed yet for this. Used Google's site search syntax (site:example.com collections) to find Shopify stores, since every Shopify store uses \"/collections/\" in its category page URLs — this pulled large lists of Shopify stores directly from search results. Filtered the list down to stores based in North America, Europe, Australia, and New Zealand with more than 2,000 monthly visits, since that traffic level signaled an active store already investing in growth. For personalization, researched each prospect's niche competitors and ran a keyword gap analysis, looking for navigational or transactional keywords with more than 100 monthly searches that the competitor ranked for but the prospect did not — then used this directly in outreach copy, naming the competitor, the specific keyword gap, and the estimated upside.",
+      "result": "70% open rate and 7-8% reply rate, at a time when open rate tracking still worked reliably before ESP providers began penalizing it. Booked multiple meetings and signed 3 clients over 3 months, each with a lifetime value of approximately $20,000, for $60,000 in closed revenue. An additional $150,000 in active leads sat in the CRM at the time, bringing total pipeline generated to approximately $210,000.",
+      "tools": ["Custom Chrome extension (self-built)", "Google site search operators", "Cold email platform", "CRM"],
+      "workflow": [
+        { "title": "Build scraper tool", "description": "Chrome extension plus site search" },
+        { "title": "Filter prospect list", "description": "Geography and traffic minimums" },
+        { "title": "Competitor research", "description": "Find niche competitors per store" },
+        { "title": "Keyword gap analysis", "description": "Keywords with 100+ monthly volume" },
+        { "title": "Personalized outreach", "description": "Reference competitor keyword rankings" },
+        { "title": "Campaign results", "description": "70% open rate, 3 clients signed", "isResult": true }
+      ],
+      "screenshots": ["/images/projects/logeix-cold-email/screenshot-1.jpg"],
       "testimonial": {
         "quote": "Ahmer knows his stuff when it comes to cold emailing. We signed multiple clients while working together and fully delegated the work to him with minimal communication needed.",
         "attribution": "Daryl Rosser, Logeix"
@@ -85,7 +95,7 @@
       "problem": "Syntech needed a reliable way to generate qualified leads and book meetings to grow its client base.",
       "solution": "I set up the email infrastructure and records for deliverability, cleaned and segmented lead lists to prequalified prospects, loaded campaigns into automation tools, wrote the copy, and managed replies and follow-ups.",
       "result": "Campaigns hit up to 70% open and 5% response rates with 15 to 25% positive replies, built a six-figure pipeline, and signed 10+ clients in six months.",
-      "screenshot": "/images/projects/syntech-cold-email/screenshot.jpg",
+      "screenshots": ["/images/projects/syntech-cold-email/screenshot.jpg"],
       "testimonial": null,
       "featured": true
     },
@@ -96,16 +106,23 @@
       "industry": "E-commerce (watch accessories), United States",
       "categories": ["seo"],
       "thumbnail": "/images/projects/hadley-watch-bands-seo/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Grew organic traffic 5x and doubled organic keywords for a US watch-band store that relied entirely on paid ads",
+      "oneLineResult": "Grew organic traffic 5x and doubled organic keywords for a US watch band store that relied entirely on paid ads.",
       "stats": [
         { "value": "5x", "label": "Organic traffic growth" },
         { "value": "2x", "label": "Organic keyword growth" }
       ],
-      "problem": "Hadley made good sales but every sale came from a single paid channel (Facebook Ads). They had almost no non-branded keywords ranking and very little organic traffic, leaving a large amount of potential untapped.",
-      "solution": "I audited the site (no prior SEO foundation existed), ran competitor and keyword research, then handled on-page work: keyword mapping, structure changes, meta and heading optimization, image alt tags, and content for thin category pages. I also fixed coverage issues, added a sitemap and schema, and managed the crawl budget.",
-      "result": "The store built an organic search presence for the first time, grew traffic 5x and keywords 2x, and reduced its dependence on paid ads.",
-      "screenshot": "/images/projects/hadley-watch-bands-seo/screenshot.jpg",
+      "problem": "Hadley had good sales but every sale came from a single paid channel (Facebook Ads). Almost no non-branded keywords were ranking, leaving a large amount of organic potential untapped.",
+      "solution": "Ran the site's first ever SEO audit. Did competitor and keyword research, remapped the site structure, and fixed meta tags and headings. Wrote content for thin category pages, fixed crawl and coverage issues, and added schema markup.",
+      "result": "Built an organic search presence from nothing. Traffic grew 5x, ranking keywords doubled, and the brand became less dependent on paid ads.",
+      "tools": ["SEMrush", "Google Search Console", "GA4"],
+      "workflow": [
+        { "title": "Run first SEO audit", "description": "Full site technical review" },
+        { "title": "Map keywords", "description": "Competitor and keyword research" },
+        { "title": "Rebuild site structure", "description": "Meta tags and headings" },
+        { "title": "Add page content", "description": "Content for thin category pages" },
+        { "title": "Campaign results", "description": "5x traffic, 2x keywords", "isResult": true }
+      ],
+      "screenshots": [],
       "testimonial": null,
       "featured": true
     },
@@ -116,36 +133,50 @@
       "industry": "Real estate / property management, United States",
       "categories": ["seo", "local-seo"],
       "thumbnail": "/images/projects/mpm-google-penalty-recovery/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Recovered a real estate site from a Google penalty and restored 400% of its organic traffic",
+      "oneLineResult": "Recovered a US real estate site from a Google algorithm hit and restored organic traffic 400%.",
       "stats": [
         { "value": "400%", "label": "Organic traffic growth" },
         { "value": "120%", "label": "Organic keyword growth" }
       ],
       "problem": "MPM had lost up to 60% of its keyword base, with organic traffic on a continuous decline. The previous local SEO agency could not identify the cause, and the site kept losing rankings.",
-      "solution": "I diagnosed the drop as a hit from Google's December 2021 update, confirmed there was no manual penalty in Search Console, then ran a content audit (the update targeted content) and fixed the major content issues driving the decline.",
-      "result": "The site recovered from the update, regained 120% in organic keywords and 400% in organic traffic, and got de-indexed pages indexed again.",
-      "screenshot": "/images/projects/mpm-google-penalty-recovery/screenshot.jpg",
+      "solution": "Ran diagnostics and ruled out a manual penalty in Search Console, tracing the drop instead to Google's December 2021 algorithm update. Ran a full content audit to identify the pages and issues driving the decline, then fixed the core content problems across the affected pages.",
+      "result": "Site recovered from the update. Organic traffic grew 400%, organic keywords grew 120%, and previously de-indexed pages were re-indexed.",
+      "tools": ["Google Search Console"],
+      "workflow": [
+        { "title": "Diagnose the drop", "description": "Ruled out manual penalty" },
+        { "title": "Run content audit", "description": "Identify affected pages and issues" },
+        { "title": "Fix and republish", "description": "Address core content issues" },
+        { "title": "Recover rankings", "description": "De-indexed pages re-indexed" },
+        { "title": "Campaign results", "description": "400% traffic, 120% keywords", "isResult": true }
+      ],
+      "screenshots": [],
       "testimonial": null,
       "featured": true
     },
     {
-      "slug": "craft-online-ecommerce-seo",
-      "title": "Organic SEO Growth for a Craft Superstore",
-      "client": "Craft Online",
+      "slug": "australian-craft-store-seo",
+      "title": "40% Organic Growth for Australia's Largest Craft Store",
+      "client": "Australian craft e-commerce store",
       "industry": "E-commerce (arts and crafts), Australia",
       "categories": ["seo"],
-      "thumbnail": "/images/projects/craft-online-ecommerce-seo/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Grew organic traffic 40% and doubled organic keywords for Australia's largest online craft store",
+      "thumbnail": "/images/projects/australian-craft-store-seo/thumb.jpg",
+      "oneLineResult": "Grew organic traffic 40% and doubled organic keywords for Australia's largest online craft store, replacing an underperforming previous agency.",
       "stats": [
         { "value": "40%", "label": "Organic traffic growth" },
         { "value": "2x", "label": "Organic keyword growth" }
       ],
-      "problem": "Craft Online was investing heavily in SEO with a previous agency but had a narrow keyword base, low organic traffic, and weak visibility. Their previous agency used outdated tactics and gave poor reporting, so they were not getting the ROI they expected.",
-      "solution": "I ran a full SEO audit and competitor analysis, then mapped keywords to every page, rebuilt meta tags and URL structures, fixed heading and image tags, and added content to thin pages. On the technical side I fixed coverage and crawl issues, optimized internal linking, added schema, and improved Core Web Vitals.",
-      "result": "Organic traffic and keyword rankings grew significantly, letting the client diversify their sales channels and reduce reliance on paid ads. Search visibility improved across the store.",
-      "screenshot": "/images/projects/craft-online-ecommerce-seo/screenshot.jpg",
+      "problem": "The client was investing heavily in SEO with a previous agency but had a narrow keyword base, low organic traffic, and weak visibility. The previous agency used outdated tactics and gave poor reporting.",
+      "solution": "Ran a full SEO audit and competitor analysis. Mapped keywords to every page, rebuilt meta tags and URL structures, and fixed heading and image tags. Added content to thin pages, fixed coverage and crawl issues, optimized internal linking, added schema markup, and improved Core Web Vitals.",
+      "result": "Organic traffic grew 40% and keyword rankings doubled. The client diversified sales channels and reduced reliance on paid ads.",
+      "tools": ["SEMrush", "Google Search Console", "GA4"],
+      "workflow": [
+        { "title": "Run SEO audit", "description": "Full audit and competitor analysis" },
+        { "title": "Map keywords", "description": "Mapped to every page" },
+        { "title": "Rebuild technical foundation", "description": "Meta tags, URLs, headings" },
+        { "title": "Fix crawl and schema", "description": "Crawl issues, internal linking, schema" },
+        { "title": "Campaign results", "description": "40% traffic, 2x keywords", "isResult": true }
+      ],
+      "screenshots": [],
       "testimonial": null,
       "featured": false
     },
@@ -156,16 +187,23 @@
       "industry": "Software development / AI services, United States",
       "categories": ["seo", "local-seo"],
       "thumbnail": "/images/projects/techling-programmatic-seo/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Took organic impressions from near zero to 60,000+ by building an SEO channel from scratch",
+      "oneLineResult": "Took organic impressions from near zero to 60,000+ by building an entire SEO channel from scratch, including a programmatic pages strategy.",
       "stats": [
         { "value": "60,000+", "label": "Organic impressions" },
         { "value": "700+", "label": "Organic clicks" }
       ],
-      "problem": "Techling ran on an outdated website with generic, borrowed content and relied on outbound alone. There was no organic acquisition channel and little search visibility.",
-      "solution": "After launching a new brand-aligned site, I fixed technical issues (speed, broken links, crawlability), set up local listings and Google Business Profiles across target US markets, and used programmatic SEO to generate pages for niche AI-related and local keywords.",
-      "result": "Organic impressions grew from near zero to 60,000+ with 700+ clicks, mostly from priority markets (US, UAE, Saudi Arabia), ranking for branded and non-branded terms.",
-      "screenshot": "/images/projects/techling-programmatic-seo/screenshot.jpg",
+      "problem": "Techling had an outdated website with generic, borrowed content and no organic acquisition channel at all.",
+      "solution": "Launched a new brand-aligned site and fixed the technical foundation, including page speed, broken links, and crawlability. Set up local business listings and Google Business Profiles across target US markets. Used programmatic SEO to generate pages targeting niche AI-related and location-based keywords at scale.",
+      "result": "Organic impressions grew from near zero to over 60,000, with 700+ organic clicks. Traffic came in from the US, UAE, and Saudi Arabia, with rankings across both branded and non-branded terms.",
+      "tools": ["Google Search Console", "Google Business Profile", "Programmatic SEO page generation"],
+      "workflow": [
+        { "title": "Launch new site", "description": "Brand-aligned redesign, technical foundation" },
+        { "title": "Fix technical issues", "description": "Speed, broken links, crawlability" },
+        { "title": "Set up local listings", "description": "Google Business Profiles, US markets" },
+        { "title": "Programmatic SEO", "description": "AI and location keyword pages" },
+        { "title": "Campaign results", "description": "60K+ impressions, 700+ clicks", "isResult": true }
+      ],
+      "screenshots": ["/images/projects/techling-programmatic-seo/screenshot-1.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -188,7 +226,7 @@
       "problem": "Arken, an SEO agency for budget-conscious SMBs, needed to reach local UK businesses and book meetings to support sales growth, with no outbound system in place.",
       "solution": "I built the outbound system end to end: set up email accounts and DNS records (SPF, DKIM, DMARC), built and segmented ICP lead lists, wrote personalized sequences, monitored inbox placement, and handled responses and handoffs.",
       "result": "Campaigns achieved 5 to 7% response and 15 to 25% positive reply rates (around 1 positive reply per 80 emails), creating a scalable, repeatable system that produced steady qualified leads.",
-      "screenshot": "/images/projects/arken-cold-email/screenshot.jpg",
+      "screenshots": ["/images/projects/arken-cold-email/screenshot.jpg"],
       "testimonial": null,
       "featured": false
     },
@@ -208,27 +246,37 @@
       "problem": "Plus Social needed to connect with Australian e-commerce businesses and book meetings to fuel its sales pipeline, with no outbound system set up.",
       "solution": "I built the cold outreach system from the ground up: email accounts and DNS records (SPF, DKIM, DMARC) for deliverability, cleaned and segmented lead lists, personalized copy, deliverability monitoring, and reply management.",
       "result": "Campaigns reached up to 70% open, 5% response, and 15 to 25% positive reply rates, establishing a predictable and scalable outbound channel.",
-      "screenshot": "/images/projects/plus-social-cold-email/screenshot.jpg",
+      "screenshots": ["/images/projects/plus-social-cold-email/screenshot.jpg"],
       "testimonial": null,
       "featured": false
     },
     {
       "slug": "viralfire-outbound",
-      "title": "Booking Meetings for a UGC Marketing Agency",
+      "title": "$33K in Pipeline for a UGC and Performance Marketing Agency",
       "client": "Viral Fire",
-      "industry": "UGC / TikTok marketing agency, United States",
+      "industry": "UGC and performance marketing agency, United States",
       "categories": ["outbound"],
       "thumbnail": "/images/projects/viralfire-outbound/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Booked 20+ meetings in a month for a UGC and TikTok marketing agency",
+      "oneLineResult": "Built a 15-domain cold email and LinkedIn outreach engine for a UGC and performance marketing agency, generating $33K in pipeline in a single month.",
       "stats": [
-        { "value": "20+", "label": "Meetings booked" },
+        { "value": "60%", "label": "Open rate" },
+        { "value": "11", "label": "Meetings booked" },
         { "value": "$33K", "label": "Pipeline generated" }
       ],
-      "problem": "Viral Fire needed qualified meetings booked through outbound to grow its client base.",
-      "solution": "I set up cold outreach across cold email, LinkedIn, and Twitter, built ICPs by niche, and ran the campaigns and infrastructure from scratch.",
-      "result": "Booked 20+ meetings in a month, generating around $33K in pipeline.",
-      "screenshot": "/images/projects/viralfire-outbound/screenshot.jpg",
+      "problem": "Viral Fire connects ecommerce brands with a combination of UGC content and performance marketing services. The goal was to reach ecommerce store owners and show them how quality video content could drive more sales, with no existing outbound engine in place.",
+      "solution": "Worked with the company CEO to source ecommerce store data from LeadFuze, UpLead, BuiltWith, and StoreLeads. Found and verified contact details for multiple C-level executives and managers at each target company using GetProspect, Apollo, and Snov, since sourcing accurate emails and LinkedIn profiles was the main early challenge. Built separate ICPs based on each store's ecommerce vertical and monthly revenue. Purchased 15 domains and set up G Suite accounts with SPF, DKIM, and DMARC records, then warmed them up for deliverability, with custom domain tracking set up across all 15 domains. Ran a multi-sequence cold email campaign with follow-ups branching based on each prospect's initial response, alongside parallel LinkedIn outreach.",
+      "result": "Sent 50,000 emails including follow-ups, with a 60% open rate and 3% response rate. Generated 43 positive replies and booked 11 meetings, for approximately $33,000 in pipeline. Some of this pipeline converted to closed clients, but the exact count and value are unconfirmed.",
+      "tools": ["LeadFuze", "UpLead", "BuiltWith", "StoreLeads", "GetProspect", "Apollo", "Snov", "G Suite", "Custom domain tracking setup"],
+      "workflow": [
+        { "title": "Source store data", "description": "LeadFuze, UpLead, BuiltWith, StoreLeads" },
+        { "title": "Enrich contacts", "description": "GetProspect, Apollo, and Snov" },
+        { "title": "Build ICPs", "description": "Segment by vertical and revenue" },
+        { "title": "Set up email infrastructure", "description": "15 domains, full deliverability setup" },
+        { "title": "Launch outreach", "description": "Multi-sequence cold email and LinkedIn" },
+        { "title": "Campaign results", "description": "60% open, 11 meetings booked", "isResult": true }
+      ],
+      "workflowIntro": "The outreach engine, from data sourcing to booked meetings.",
+      "screenshots": ["/images/projects/viralfire-outbound/screenshot-1.jpg"],
       "testimonial": null,
       "featured": false
     },
@@ -248,7 +296,7 @@
       "problem": "Techling relied on passive Upwork leads and had no outbound channel, limiting its ability to reach high-value clients in niche AI markets.",
       "solution": "I set up the email infrastructure (domains, DNS, warm-up), built workflows in Smartlead integrated with Apollo and enrichment tools, scraped and verified leads (Reoon, Voila Norbert, BounceBan, LeadMagic), and A/B tested industry-specific offers.",
       "result": "The channel hit a 5% reply rate with 7% positive replies and under 2% bounce, generating 24 qualified leads worth around $30K ACV and reducing dependence on Upwork.",
-      "screenshot": "/images/projects/techling-cold-email/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-cold-email/screenshot.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -271,7 +319,7 @@
       "problem": "Techling needed qualified, high-ticket AI and ML deals across EdTech, SaaS, retail, and healthcare, without relying on paid ads.",
       "solution": "I designed and ran LinkedIn outreach from the CEO's profile, sourced high-intent leads via Sales Navigator and engagement data, automated outreach with HeyReach while keeping personalization, and aligned it with the content strategy.",
       "result": "Reached 2,000+ qualified leads with a 30% connection acceptance rate and 27% reply rate, held 50+ qualified meetings, and closed multiple five-figure deals.",
-      "screenshot": "/images/projects/techling-linkedin-outreach/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-linkedin-outreach/screenshot.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -294,7 +342,7 @@
       "problem": "To build credibility in healthcare AI, Techling needed a dedicated brand and a director's profile that could attract healthcare founders, CTOs, and innovation leads from scratch.",
       "solution": "I created the brand identity and content voice, built a LinkedIn content strategy for healthcare decision-makers, posted consistent thought leadership, and directed engagement with the ICP and relevant creators.",
       "result": "Built the director's profile from 0 to 866 followers in 90 days, with 35,000+ impressions, 1,400+ engagements, 1,200+ profile viewers, and 10+ qualified healthcare leads.",
-      "screenshot": "/images/projects/techling-healthcare-brand/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-healthcare-brand/screenshot.jpg"],
       "testimonial": {
         "quote": "What sets Ahmer apart is not just his expertise, but his work ethic and dedication. He's proactive, detail-oriented, and deeply committed to delivering results.",
         "attribution": "Muhammad Ammar, Director, Techling Healthcare"
@@ -317,7 +365,7 @@
       "problem": "The client was a 45-year-old brick-and-mortar hobby store that had to pivot online in 2020. Their Google Ads channel had been set up but never properly activated. They had a limited $3,000/month budget and needed fast, measurable returns from their digital spend.",
       "solution": "I analysed the business model and built a campaign strategy that prioritised fast ROI within the budget constraints. I activated the dormant channel, set up and structured campaigns end to end, then managed performance and scaled spend as results came in.",
       "result": "The campaigns hit 830% ROAS and generated $33.6K in revenue in the first two weeks, with an $11 CPA. The channel became a consistent cash-flow driver and the budget was scaled up based on early performance.",
-      "screenshot": "/images/projects/australian-hobby-store-google-ads/screenshot.jpg",
+      "screenshots": ["/images/projects/australian-hobby-store-google-ads/screenshot.jpg"],
       "testimonial": null,
       "featured": false,
       "featuredDigitalMarketing": true
@@ -338,7 +386,7 @@
       "problem": "The client was an established online supplement store that had tried multiple agencies but could not get their SEM campaigns to perform. Despite ongoing spend, CPA was high and revenue from paid search was underwhelming.",
       "solution": "I ran a deep performance analysis of the existing account, identified flawed campaign settings and structural issues, then restructured and optimised the campaigns, iterating on bids, keywords, negative lists, and ad copy over three months.",
       "result": "ROAS improved to 1:22, CPA dropped from $28 to $12, and monthly revenue increased by $19K at the same ad spend. The business reached the half-million-dollar revenue mark during this period.",
-      "screenshot": "/images/projects/australian-supplement-brand-google-ads/screenshot.jpg",
+      "screenshots": ["/images/projects/australian-supplement-brand-google-ads/screenshot.jpg"],
       "testimonial": null,
       "featured": false,
       "featuredDigitalMarketing": true
@@ -359,7 +407,7 @@
       "problem": "Techling needed to reach high-value clients in niche AI markets but had no scalable way to find, enrich, and contact qualified prospects without relying on manual research or passive Upwork leads.",
       "solution": "Used Clay to pull and enrich prospect data by scraping company signals and intent data across target verticals. Used Apify to build prospect lists from public sources at scale. Fed verified leads into Smartlead for A/B tested sequences by industry vertical.",
       "result": "Achieved 5% reply rate, 7% positive replies, and under 2% bounce rate. Generated 24 qualified leads worth around $30K ACV and eliminated dependence on passive Upwork leads.",
-      "screenshot": "/images/projects/techling-ai-marketing/screenshot.jpg",
+      "screenshots": ["/images/projects/techling-ai-marketing/screenshot.jpg"],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -387,7 +435,7 @@
   "digitalMarketingProjects": [
     "hadley-watch-bands-seo",
     "mpm-google-penalty-recovery",
-    "craft-online-ecommerce-seo",
+    "australian-craft-store-seo",
     "techling-programmatic-seo",
     "australian-hobby-store-google-ads",
     "australian-supplement-brand-google-ads",

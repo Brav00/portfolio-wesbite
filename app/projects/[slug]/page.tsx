@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import projects from '@/data/projects';
@@ -7,6 +6,8 @@ import { formatCategoryLabel } from '@/lib/utils';
 import { StatCard } from '@/components/StatCard';
 import { TestimonialCard } from '@/components/TestimonialCard';
 import { YouTubeEmbed } from '@/components/YouTubeEmbed';
+import { WorkflowDiagram } from '@/components/WorkflowDiagram';
+import { Lightbox } from '@/components/Lightbox';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -70,16 +71,28 @@ export default async function CaseStudyPage({ params }: Props) {
       </p>
 
       {/* Video */}
-      <div className="mb-10">
-        <YouTubeEmbed url={project.videoUrl} title={project.title} />
-      </div>
+      {project.videoUrl !== undefined && (
+        <div className="mb-10">
+          <YouTubeEmbed url={project.videoUrl} title={project.title} />
+        </div>
+      )}
 
       {/* Stats */}
-      <div className="flex gap-4 mb-12">
+      <div className="flex flex-wrap gap-4 mb-12">
         {project.stats.map((stat) => (
           <StatCard key={stat.label} stat={stat} />
         ))}
       </div>
+
+      {/* Workflow diagram */}
+      {project.workflow && project.workflow.length > 0 && (
+        <>
+          {project.workflowIntro && (
+            <p className="text-secondary text-sm mb-4">{project.workflowIntro}</p>
+          )}
+          <WorkflowDiagram steps={project.workflow} />
+        </>
+      )}
 
       {/* Problem */}
       <section className="mb-10">
@@ -87,30 +100,41 @@ export default async function CaseStudyPage({ params }: Props) {
         <p className="text-muted leading-relaxed">{project.problem}</p>
       </section>
 
-      {/* Solution */}
+      {/* What I did */}
       <section className="mb-10">
-        <h2 className="text-xl font-semibold text-primary mb-3">The solution</h2>
+        <h2 className="text-xl font-semibold text-primary mb-3">What I did</h2>
         <p className="text-muted leading-relaxed">{project.solution}</p>
       </section>
 
-      {/* Screenshot */}
-      <div className="mb-10 bg-card border border-black/[0.08] rounded-xl overflow-hidden p-3">
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-[#e5e3de]">
-          <Image
-            src={project.screenshot}
-            alt={`${project.title} — screenshot`}
-            fill
-            className="object-cover"
-            unoptimized
-          />
-        </div>
-      </div>
-
       {/* Result */}
-      <section className="mb-12">
+      <section className="mb-10">
         <h2 className="text-xl font-semibold text-primary mb-3">The result</h2>
         <p className="text-muted leading-relaxed">{project.result}</p>
       </section>
+
+      {/* Tools */}
+      {project.tools && project.tools.length > 0 && (
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-primary mb-3">Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => (
+              <span
+                key={tool}
+                className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-accent-tag text-accent"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Screenshot lightbox */}
+      {project.screenshots.length > 0 && (
+        <div className="mb-12">
+          <Lightbox images={project.screenshots} title={project.title} />
+        </div>
+      )}
 
       {/* Testimonial */}
       {project.testimonial && (
