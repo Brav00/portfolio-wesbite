@@ -356,16 +356,24 @@
       "industry": "E-commerce, hobby and crafts, Australia",
       "categories": ["google-ads"],
       "thumbnail": "/images/projects/australian-hobby-store-google-ads/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Activated a dormant Google Ads channel and hit 830% ROAS with $33.6K revenue in the first two weeks",
+      "oneLineResult": "Activated a dormant Google Ads channel and hit 830% ROAS with $33.6K in revenue in the first two weeks",
       "stats": [
         { "value": "830%", "label": "ROAS" },
-        { "value": "$11", "label": "Cost per acquisition" }
+        { "value": "$33.6K", "label": "Revenue, first 2 weeks" },
+        { "value": "$11", "label": "CPA" }
       ],
       "problem": "The client was a 45-year-old brick-and-mortar hobby store that had to pivot online in 2020. Their Google Ads channel had been set up but never properly activated. They had a limited $3,000/month budget and needed fast, measurable returns from their digital spend.",
       "solution": "I analysed the business model and built a campaign strategy that prioritised fast ROI within the budget constraints. I activated the dormant channel, set up and structured campaigns end to end, then managed performance and scaled spend as results came in.",
       "result": "The campaigns hit 830% ROAS and generated $33.6K in revenue in the first two weeks, with an $11 CPA. The channel became a consistent cash-flow driver and the budget was scaled up based on early performance.",
-      "screenshots": ["/images/projects/australian-hobby-store-google-ads/screenshot.jpg"],
+      "tools": ["Google Ads"],
+      "workflow": [
+        { "title": "Analyze the business", "description": "Assess budget and constraints" },
+        { "title": "Build ad strategy", "description": "Fast ROI campaign plan" },
+        { "title": "Activate dormant channel", "description": "Turn on Google Ads" },
+        { "title": "Manage and scale", "description": "Reinvest as results grew" },
+        { "title": "Campaign results", "description": "830% ROAS, $33.6K revenue", "isResult": true }
+      ],
+      "screenshots": [],
       "testimonial": null,
       "featured": false,
       "featuredDigitalMarketing": true
@@ -377,16 +385,23 @@
       "industry": "E-commerce, supplements and nutrition, Australia",
       "categories": ["google-ads"],
       "thumbnail": "/images/projects/australian-supplement-brand-google-ads/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Restructured a failing Google Ads account to cut CPA from $28 to $12 and add $19K in monthly revenue at the same ad spend",
+      "oneLineResult": "Restructured a failing Google Ads account to cut CPA by more than half and add $19K in monthly revenue",
       "stats": [
-        { "value": "$28→$12", "label": "CPA reduction" },
-        { "value": "1:22", "label": "ROAS achieved" }
+        { "value": "$28→$12", "label": "CPA" },
+        { "value": "+$19K", "label": "Monthly revenue" },
+        { "value": "1:22", "label": "ROAS" }
       ],
       "problem": "The client was an established online supplement store that had tried multiple agencies but could not get their SEM campaigns to perform. Despite ongoing spend, CPA was high and revenue from paid search was underwhelming.",
       "solution": "I ran a deep performance analysis of the existing account, identified flawed campaign settings and structural issues, then restructured and optimised the campaigns, iterating on bids, keywords, negative lists, and ad copy over three months.",
       "result": "ROAS improved to 1:22, CPA dropped from $28 to $12, and monthly revenue increased by $19K at the same ad spend. The business reached the half-million-dollar revenue mark during this period.",
-      "screenshots": ["/images/projects/australian-supplement-brand-google-ads/screenshot.jpg"],
+      "tools": ["Google Ads"],
+      "workflow": [
+        { "title": "Analyze the account", "description": "Identify flawed settings" },
+        { "title": "Restructure campaigns", "description": "Rebuild structure and targeting" },
+        { "title": "Iterate for 3 months", "description": "Bids, keywords, and copy" },
+        { "title": "Campaign results", "description": "CPA $28 to $12, +$19K/mo", "isResult": true }
+      ],
+      "screenshots": [],
       "testimonial": null,
       "featured": false,
       "featuredDigitalMarketing": true
