@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw case study source material (briefs + screenshots, not site assets)
+/Case studies/
