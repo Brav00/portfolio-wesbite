@@ -30,16 +30,30 @@
       "industry": "Software development / AI services, United States",
       "categories": ["positioning"],
       "thumbnail": "/images/projects/techling-ceo-personal-brand/thumb.jpg",
-      "videoUrl": "",
+      "videoUrl": "https://www.loom.com/share/4f7e8c24f9d54431a9a118874db8c565",
       "oneLineResult": "Grew a founder's LinkedIn from near zero to 8,000 targeted followers and 1.4M impressions",
       "stats": [
         { "value": "8,000", "label": "Targeted followers grown" },
-        { "value": "1.4M", "label": "Impressions generated" }
+        { "value": "1.4M", "label": "Impressions generated" },
+        { "value": "14,000+", "label": "Engagements" }
       ],
       "problem": "To position Techling as a thought leader in AI and software, the CEO needed a targeted audience and real engagement with decision-makers, starting from almost nothing.",
       "solution": "I cleaned his connections to match the ICP, built a content calendar and posted daily across formats (stories, insights, carousels, case studies), iterated using data, and engaged strategically with influencers and ICP accounts.",
       "result": "Grew the profile from near zero to 8,000 targeted followers in 12 months, with 1.4M total impressions, 14,000+ engagements, and some posts passing 750,000 impressions.",
-      "screenshots": ["/images/projects/techling-ceo-personal-brand/screenshot.jpg"],
+      "tools": ["LinkedIn", "Taplio", "Canva"],
+      "workflow": [
+        { "title": "Clean network", "description": "Align connections to ICP" },
+        { "title": "Build content calendar", "description": "Daily posts, multiple formats" },
+        { "title": "Publish and iterate", "description": "Data-driven content adjustments" },
+        { "title": "Engage strategically", "description": "Influencers and ICP accounts" },
+        { "title": "Campaign results", "description": "8,000 followers, 1.4M impressions", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/techling-ceo-personal-brand/screenshot-1.jpg",
+        "/images/projects/techling-ceo-personal-brand/screenshot-2.jpg",
+        "/images/projects/techling-ceo-personal-brand/screenshot-3.jpg",
+        "/images/projects/techling-ceo-personal-brand/screenshot-4.jpg"
+      ],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -86,16 +100,28 @@
       "industry": "SEO / digital marketing agency",
       "categories": ["outbound"],
       "thumbnail": "/images/projects/syntech-cold-email/thumb.jpg",
-      "videoUrl": "",
       "oneLineResult": "Built a six-figure pipeline and signed 10+ clients for a local SEO agency through cold email",
       "stats": [
         { "value": "6-figure", "label": "Sales pipeline built" },
-        { "value": "10+", "label": "Clients signed" }
+        { "value": "10+", "label": "Clients signed" },
+        { "value": "70%", "label": "Open rate" }
       ],
       "problem": "Syntech needed a reliable way to generate qualified leads and book meetings to grow its client base.",
       "solution": "I set up the email infrastructure and records for deliverability, cleaned and segmented lead lists to prequalified prospects, loaded campaigns into automation tools, wrote the copy, and managed replies and follow-ups.",
       "result": "Campaigns hit up to 70% open and 5% response rates with 15 to 25% positive replies, built a six-figure pipeline, and signed 10+ clients in six months.",
-      "screenshots": ["/images/projects/syntech-cold-email/screenshot.jpg"],
+      "tools": ["Cold email infrastructure (domains, DNS)", "Outreach automation platform", "CRM"],
+      "workflow": [
+        { "title": "Set up infrastructure", "description": "Domains and DNS records" },
+        { "title": "Segment ICP lists", "description": "Local SEO agency targets" },
+        { "title": "Launch campaigns", "description": "Automation tool sequences" },
+        { "title": "Write and test copy", "description": "Personalized messaging" },
+        { "title": "Manage replies", "description": "Book meetings, follow-ups" },
+        { "title": "Campaign results", "description": "70% open, 10+ clients", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/syntech-cold-email/screenshot-1.jpg",
+        "/images/projects/syntech-cold-email/screenshot-2.jpg"
+      ],
       "testimonial": null,
       "featured": true
     },
@@ -237,16 +263,31 @@
       "industry": "E-commerce marketing agency, Australia",
       "categories": ["outbound"],
       "thumbnail": "/images/projects/plus-social-cold-email/thumb.jpg",
-      "videoUrl": "",
+      "videoUrl": "https://www.loom.com/share/00d13a9bb333407598131135d72dd778",
       "oneLineResult": "Built a predictable cold email pipeline for an Australian e-commerce agency, with up to 70% open rates",
       "stats": [
         { "value": "70%", "label": "Email open rate" },
+        { "value": "5%", "label": "Response rate" },
         { "value": "15-25%", "label": "Positive reply rate" }
       ],
       "problem": "Plus Social needed to connect with Australian e-commerce businesses and book meetings to fuel its sales pipeline, with no outbound system set up.",
       "solution": "I built the cold outreach system from the ground up: email accounts and DNS records (SPF, DKIM, DMARC) for deliverability, cleaned and segmented lead lists, personalized copy, deliverability monitoring, and reply management.",
       "result": "Campaigns reached up to 70% open, 5% response, and 15 to 25% positive reply rates, establishing a predictable and scalable outbound channel.",
-      "screenshots": ["/images/projects/plus-social-cold-email/screenshot.jpg"],
+      "tools": ["Cold email infrastructure (domains, DNS, deliverability monitoring)", "CRM"],
+      "workflow": [
+        { "title": "Set up infrastructure", "description": "Email accounts and DNS records" },
+        { "title": "Segment prospect lists", "description": "Australian ecommerce targets" },
+        { "title": "Personalize outreach copy", "description": "Written per segment" },
+        { "title": "Monitor deliverability", "description": "Track inbox placement" },
+        { "title": "Manage replies", "description": "Book meetings from responses" },
+        { "title": "Campaign results", "description": "70% open, 5% response", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/plus-social-cold-email/screenshot-1.jpg",
+        "/images/projects/plus-social-cold-email/screenshot-2.jpg",
+        "/images/projects/plus-social-cold-email/screenshot-3.jpg",
+        "/images/projects/plus-social-cold-email/screenshot-4.jpg"
+      ],
       "testimonial": null,
       "featured": false
     },
@@ -285,41 +326,66 @@
       "title": "A Cold Email Engine for an AI Software Company",
       "client": "Techling.ai",
       "industry": "Software development / AI services, United States",
-      "categories": ["outbound"],
+      "categories": ["ai-marketing", "outbound"],
       "thumbnail": "/images/projects/techling-cold-email/thumb.jpg",
-      "videoUrl": "",
+      "videoUrl": "https://www.loom.com/share/21c4d1f9b702481caabce45e2257874f",
       "oneLineResult": "Generated 24 qualified leads worth $30K in ACV from a cold email channel built from scratch",
       "stats": [
         { "value": "24", "label": "Qualified leads generated" },
-        { "value": "$30K", "label": "ACV of generated leads" }
+        { "value": "$30K", "label": "ACV of generated leads" },
+        { "value": "7%", "label": "Positive reply rate" }
       ],
-      "problem": "Techling relied on passive Upwork leads and had no outbound channel, limiting its ability to reach high-value clients in niche AI markets.",
-      "solution": "I set up the email infrastructure (domains, DNS, warm-up), built workflows in Smartlead integrated with Apollo and enrichment tools, scraped and verified leads (Reoon, Voila Norbert, BounceBan, LeadMagic), and A/B tested industry-specific offers.",
-      "result": "The channel hit a 5% reply rate with 7% positive replies and under 2% bounce, generating 24 qualified leads worth around $30K ACV and reducing dependence on Upwork.",
-      "screenshots": ["/images/projects/techling-cold-email/screenshot.jpg"],
-      "testimonial": {
-        "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
-        "attribution": "Muhammad Akif, CEO, Techling.ai"
-      },
-      "featured": false
+      "problem": "Techling relied on passive Upwork leads with no outbound channel, and needed a scalable way to find, enrich, and contact qualified prospects in niche AI markets without relying on manual research.",
+      "solution": "Set up the email infrastructure (domains, DNS records, warm-up) and built outreach workflows in Smartlead integrated with Apollo. Used Clay to pull and enrich prospect data with company and intent signals across target verticals, and Apify to build prospect lists from public sources at scale. Verified and cleaned leads using Reoon, Voila Norbert, BounceBan, and LeadMagic. A/B tested industry-specific offers by vertical.",
+      "result": "Achieved a 5% reply rate, 7% positive replies, and under 2% bounce rate. Generated 24 qualified leads worth approximately $30K ACV, eliminating dependence on passive Upwork leads.",
+      "tools": ["Smartlead", "Apollo", "Clay", "Apify", "Reoon", "Voila Norbert", "BounceBan", "LeadMagic"],
+      "workflow": [
+        { "title": "Set up infrastructure", "description": "Domains, DNS, warm-up" },
+        { "title": "Enrich prospects with Clay", "description": "Company and intent signals" },
+        { "title": "Build lists at scale", "description": "Apify, public source scraping" },
+        { "title": "Verify and clean leads", "description": "Reoon, Voila Norbert, BounceBan" },
+        { "title": "Launch and A/B test", "description": "Smartlead, industry offers" },
+        { "title": "Campaign results", "description": "24 leads, $30K ACV", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/techling-cold-email/screenshot-1.jpg",
+        "/images/projects/techling-cold-email/screenshot-2.jpg",
+        "/images/projects/techling-cold-email/screenshot-3.jpg"
+      ],
+      "testimonial": null,
+      "featured": false,
+      "featuredDigitalMarketing": true
     },
     {
       "slug": "techling-linkedin-outreach",
       "title": "50+ Meetings from Founder-Led LinkedIn Outreach",
       "client": "Techling.ai",
       "industry": "Software development / AI services, United States",
-      "categories": ["outbound"],
+      "categories": ["outbound", "positioning"],
       "thumbnail": "/images/projects/techling-linkedin-outreach/thumb.jpg",
-      "videoUrl": "",
+      "videoUrl": "https://www.loom.com/share/4f7e8c24f9d54431a9a118874db8c565",
       "oneLineResult": "Held 50+ qualified meetings through founder-led LinkedIn outreach at a 27% reply rate",
       "stats": [
         { "value": "50+", "label": "Qualified meetings held" },
-        { "value": "27%", "label": "Reply rate" }
+        { "value": "27%", "label": "Reply rate" },
+        { "value": "2,000+", "label": "Qualified leads reached" }
       ],
       "problem": "Techling needed qualified, high-ticket AI and ML deals across EdTech, SaaS, retail, and healthcare, without relying on paid ads.",
       "solution": "I designed and ran LinkedIn outreach from the CEO's profile, sourced high-intent leads via Sales Navigator and engagement data, automated outreach with HeyReach while keeping personalization, and aligned it with the content strategy.",
       "result": "Reached 2,000+ qualified leads with a 30% connection acceptance rate and 27% reply rate, held 50+ qualified meetings, and closed multiple five-figure deals.",
-      "screenshots": ["/images/projects/techling-linkedin-outreach/screenshot.jpg"],
+      "tools": ["Sales Navigator", "HeyReach"],
+      "workflow": [
+        { "title": "Source leads", "description": "Sales Navigator and engagement data" },
+        { "title": "Target high-intent ICPs", "description": "AI and ML buyers" },
+        { "title": "Outreach from CEO profile", "description": "Personal brand-led outreach" },
+        { "title": "Automate with HeyReach", "description": "Scaled, content-aligned messaging" },
+        { "title": "Campaign results", "description": "50+ meetings, 27% reply", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/techling-linkedin-outreach/screenshot-1.jpg",
+        "/images/projects/techling-linkedin-outreach/screenshot-2.jpg",
+        "/images/projects/techling-linkedin-outreach/screenshot-3.jpg"
+      ],
       "testimonial": {
         "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up. He built and scaled our marketing channels across content, email, and paid media, and set up robust outbound systems that allowed us to consistently reach and convert high-quality leads.",
         "attribution": "Muhammad Akif, CEO, Techling.ai"
@@ -333,16 +399,29 @@
       "industry": "Healthcare AI, United States",
       "categories": ["positioning"],
       "thumbnail": "/images/projects/techling-healthcare-brand/thumb.jpg",
-      "videoUrl": "",
+      "videoUrl": "https://www.loom.com/share/476d01d172fa4be4bc9f21c8be74157b",
       "oneLineResult": "Launched a healthcare sub-brand and drove 10+ qualified leads through a new director's LinkedIn",
       "stats": [
         { "value": "866", "label": "Followers grown from zero" },
+        { "value": "35,000+", "label": "Total impressions" },
         { "value": "10+", "label": "Qualified healthcare leads" }
       ],
       "problem": "To build credibility in healthcare AI, Techling needed a dedicated brand and a director's profile that could attract healthcare founders, CTOs, and innovation leads from scratch.",
       "solution": "I created the brand identity and content voice, built a LinkedIn content strategy for healthcare decision-makers, posted consistent thought leadership, and directed engagement with the ICP and relevant creators.",
       "result": "Built the director's profile from 0 to 866 followers in 90 days, with 35,000+ impressions, 1,400+ engagements, 1,200+ profile viewers, and 10+ qualified healthcare leads.",
-      "screenshots": ["/images/projects/techling-healthcare-brand/screenshot.jpg"],
+      "tools": ["LinkedIn", "Taplio", "Canva"],
+      "workflow": [
+        { "title": "Build brand identity", "description": "Voice for healthcare vertical" },
+        { "title": "Launch director's LinkedIn", "description": "New profile, healthcare ICP" },
+        { "title": "Publish thought leadership", "description": "Consistent posting cadence" },
+        { "title": "Engage ICP and creators", "description": "Healthcare decision-makers" },
+        { "title": "Campaign results", "description": "866 followers, 10+ leads", "isResult": true }
+      ],
+      "screenshots": [
+        "/images/projects/techling-healthcare-brand/screenshot-1.jpg",
+        "/images/projects/techling-healthcare-brand/screenshot-2.jpg",
+        "/images/projects/techling-healthcare-brand/screenshot-3.jpg"
+      ],
       "testimonial": {
         "quote": "What sets Ahmer apart is not just his expertise, but his work ethic and dedication. He's proactive, detail-oriented, and deeply committed to delivering results.",
         "attribution": "Muhammad Ammar, Director, Techling Healthcare"
@@ -405,30 +484,6 @@
       "testimonial": null,
       "featured": false,
       "featuredDigitalMarketing": true
-    },
-    {
-      "slug": "techling-ai-marketing",
-      "title": "AI-Powered Prospecting and Outreach at Scale",
-      "client": "Techling.ai",
-      "industry": "Software development / AI services, United States",
-      "categories": ["ai-marketing", "outbound"],
-      "thumbnail": "/images/projects/techling-ai-marketing/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Used Clay, Apify, and Smartlead to build an AI-augmented outbound engine that generated 24 qualified leads worth $30K ACV",
-      "stats": [
-        { "value": "24", "label": "Qualified leads generated" },
-        { "value": "7%", "label": "Positive reply rate" }
-      ],
-      "problem": "Techling needed to reach high-value clients in niche AI markets but had no scalable way to find, enrich, and contact qualified prospects without relying on manual research or passive Upwork leads.",
-      "solution": "Used Clay to pull and enrich prospect data by scraping company signals and intent data across target verticals. Used Apify to build prospect lists from public sources at scale. Fed verified leads into Smartlead for A/B tested sequences by industry vertical.",
-      "result": "Achieved 5% reply rate, 7% positive replies, and under 2% bounce rate. Generated 24 qualified leads worth around $30K ACV and eliminated dependence on passive Upwork leads.",
-      "screenshots": ["/images/projects/techling-ai-marketing/screenshot.jpg"],
-      "testimonial": {
-        "quote": "Working with Ahmer at Techling has been an exceptional experience. As our Head of Growth, he played a crucial role in building our entire digital and marketing infrastructure from the ground up.",
-        "attribution": "Muhammad Akif, CEO, Techling.ai"
-      },
-      "featured": false,
-      "featuredDigitalMarketing": true
     }
   ],
 
@@ -455,7 +510,7 @@
     "australian-hobby-store-google-ads",
     "australian-supplement-brand-google-ads",
     "techling-ceo-personal-brand",
-    "techling-ai-marketing"
+    "techling-cold-email"
   ],
 
   "digitalMarketingWhatIDo": [
