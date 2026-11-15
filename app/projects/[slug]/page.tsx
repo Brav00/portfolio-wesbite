@@ -2,12 +2,13 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import projects from '@/data/projects';
-import { formatCategoryLabel } from '@/lib/utils';
+import { formatCategoryLabel, isGtmProject } from '@/lib/utils';
 import { StatCard } from '@/components/StatCard';
 import { TestimonialCard } from '@/components/TestimonialCard';
 import { YouTubeEmbed } from '@/components/YouTubeEmbed';
 import { WorkflowDiagram } from '@/components/WorkflowDiagram';
 import { Lightbox } from '@/components/Lightbox';
+import { SectionLabel, TextLink } from '@/components/gtm/ui';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,13 +34,17 @@ export default async function CaseStudyPage({ params }: Props) {
   if (index === -1) notFound();
 
   const project = projects[index];
-  const nextProject = projects[(index + 1) % projects.length];
+  // 'Next case study' stays within the same group: GTM pages link to GTM pages,
+  // SEO and Google Ads pages (the /digital-marketing funnel) link to each other.
+  const isGtm = isGtmProject(project);
+  const group = projects.filter((p) => isGtmProject(p) === isGtm);
+  const nextProject = group[(group.findIndex((p) => p.slug === project.slug) + 1) % group.length];
 
   return (
     <article className="max-w-3xl mx-auto px-6 py-16">
-      {/* Back link */}
+      {/* Back link: SEO and Google Ads case studies return to the /digital-marketing case studies section */}
       <Link
-        href="/projects"
+        href={isGtm ? '/projects' : '/digital-marketing#case-studies'}
         className="inline-flex items-center gap-1.5 text-sm text-secondary hover:text-primary transition-colors mb-10"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -53,7 +58,7 @@ export default async function CaseStudyPage({ params }: Props) {
         {project.categories.map((cat) => (
           <span
             key={cat}
-            className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-accent-tag text-accent"
+            className="px-3 py-1 text-xs font-medium rounded-full bg-accent-tag text-accent"
           >
             {formatCategoryLabel(cat)}
           </span>
@@ -61,12 +66,12 @@ export default async function CaseStudyPage({ params }: Props) {
       </div>
 
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-semibold text-primary leading-tight mb-4">
+      <h1 className="font-gtm-heading text-[2rem] md:text-[2.6rem] font-semibold leading-[1.1] tracking-[-0.03em] text-[#1c1b19] mb-4">
         {project.title}
       </h1>
 
       {/* Subheading */}
-      <p className="text-secondary mb-10">
+      <p className="font-gtm-mono text-[12px] uppercase tracking-[0.08em] text-secondary mb-10">
         {project.client} · {project.industry}{project.engagementType ? ` · ${project.engagementType}` : ''}
       </p>
 
@@ -95,32 +100,36 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* Problem */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold text-primary mb-3">The problem</h2>
+      <section className="mb-12">
+        <SectionLabel index={1}>Problem</SectionLabel>
+        <h2 className="font-gtm-heading text-[1.45rem] font-semibold tracking-[-0.02em] text-[#1c1b19] mb-3">The problem</h2>
         <p className="text-muted leading-relaxed">{project.problem}</p>
       </section>
 
       {/* What I did */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold text-primary mb-3">What I did</h2>
+      <section className="mb-12">
+        <SectionLabel index={2}>Approach</SectionLabel>
+        <h2 className="font-gtm-heading text-[1.45rem] font-semibold tracking-[-0.02em] text-[#1c1b19] mb-3">What I did</h2>
         <p className="text-muted leading-relaxed">{project.solution}</p>
       </section>
 
       {/* Result */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold text-primary mb-3">The result</h2>
+      <section className="mb-12">
+        <SectionLabel index={3}>Outcome</SectionLabel>
+        <h2 className="font-gtm-heading text-[1.45rem] font-semibold tracking-[-0.02em] text-[#1c1b19] mb-3">The result</h2>
         <p className="text-muted leading-relaxed">{project.result}</p>
       </section>
 
       {/* Tools */}
       {project.tools && project.tools.length > 0 && (
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-primary mb-3">Tools</h2>
+        <section className="mb-12">
+          <SectionLabel index={4}>Stack</SectionLabel>
+          <h2 className="font-gtm-heading text-[1.45rem] font-semibold tracking-[-0.02em] text-[#1c1b19] mb-3">Tools</h2>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
               <span
                 key={tool}
-                className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-accent-tag text-accent"
+                className="px-3 py-1 text-xs font-medium rounded-full bg-accent-tag text-accent"
               >
                 {tool}
               </span>
@@ -148,16 +157,8 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* Next case study */}
       <div className="border-t border-black/[0.06] pt-10 flex items-center justify-between">
-        <span className="text-sm text-secondary">Next case study</span>
-        <Link
-          href={`/projects/${nextProject.slug}`}
-          className="text-sm font-semibold text-accent hover:text-accent/80 transition-colors flex items-center gap-1.5"
-        >
-          {nextProject.title}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
+        <span className="font-gtm-mono text-[11.5px] uppercase tracking-[0.12em] text-secondary">Next case study</span>
+        <TextLink href={`/projects/${nextProject.slug}`} className="text-sm text-right">{nextProject.title}</TextLink>
       </div>
     </article>
   );

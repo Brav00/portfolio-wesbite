@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { YouTubeEmbed } from '@/components/YouTubeEmbed';
 import { TestimonialSlider } from '@/components/TestimonialSlider';
 import { FadeIn } from '@/components/FadeIn';
@@ -9,7 +8,9 @@ import { BackToTop } from '@/components/BackToTop';
 import { CopyButton } from '@/components/CopyButton';
 import { WaveDivider } from '@/components/WaveDivider';
 import { formatCategoryLabel } from '@/lib/utils';
-import { BG } from '@/lib/colors';
+import { GTM } from '@/lib/colors';
+import { ArrowButton, TextLink, SectionLabel, GtmHeading } from '@/components/gtm/ui';
+import { SectionRail } from '@/components/gtm/SectionRail';
 import rawData from '@/data/projects_updated.json';
 
 export const metadata: Metadata = {
@@ -78,20 +79,34 @@ const WHAT_I_DO_BULLETS: Record<string, string[]> = {
   AI:           ['AI content & research workflows', 'Clay & Apify automation', 'Reporting at scale'],
 };
 
+const RAIL = [
+  { id: 'top', label: 'Intro' },
+  { id: 'meet-ahmer', label: 'Meet Ahmer' },
+  { id: 'case-studies', label: 'Work' },
+  { id: 'what-i-do', label: 'Services' },
+  { id: 'tools', label: 'Tools' },
+  { id: 'certifications', label: 'Certifications' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'contact', label: 'Contact' },
+];
+
 export default function DigitalMarketingPage() {
   return (
-    <>
+    <div className="[&_section[id]]:scroll-mt-20">
       <BackToTop />
+      <SectionRail sections={RAIL} />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="pt-20 pb-16 md:pt-28 md:pb-24" style={{ backgroundColor: BG.warm }}>
+      <section id="top" className="pt-20 pb-16 md:pt-28 md:pb-24" style={{ backgroundColor: GTM.warm }}>
         <div className="max-w-6xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1">
             {/* Shimmer tagline */}
+            <div className="inline-flex items-center gap-2.5 rounded-full pl-3 pr-4 py-2 mb-6" style={{ backgroundColor: GTM.tag }}>
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: GTM.copper }} />
             <p
-              className="text-sm font-semibold tracking-wide mb-4"
+              className="text-[14px] font-semibold"
               style={{
-                background: `linear-gradient(90deg, ${BG.navy}, #4a7fb5, #93b4d4, #4a7fb5, ${BG.navy})`,
+                background: `linear-gradient(90deg, ${GTM.copperInk}, ${GTM.copper}, ${GTM.copperLight}, ${GTM.copper}, ${GTM.copperInk})`,
                 backgroundSize: '300% auto',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
@@ -102,28 +117,15 @@ export default function DigitalMarketingPage() {
             >
               SEO · Google Ads · Content · AI Marketing
             </p>
-            <h1 className="text-4xl md:text-5xl font-semibold text-primary leading-tight mb-6">
-              I help businesses grow through data-driven digital marketing
-            </h1>
-            <p className="text-muted text-lg leading-relaxed mb-8 max-w-xl">
+            </div>
+            <GtmHeading as="h1" lead="I help businesses grow through" accent="data-driven digital marketing" className="mb-6" />
+            <p className="text-muted text-[16.8px] leading-[1.6] mb-9 max-w-xl">
               6 years across SEO, paid search, content, and AI-augmented campaigns. Based in
               Australia, open to digital marketing roles.
             </p>
-            <div className="flex flex-wrap gap-4 mb-10">
-              <a
-                href="mailto:ahmer.subhani02@gmail.com"
-                className="px-6 py-3 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90"
-                style={{ backgroundColor: BG.navy }}
-              >
-                Get in touch
-              </a>
-              <a
-                href="#case-studies"
-                className="px-6 py-3 border text-sm font-semibold rounded-xl transition-colors hover:bg-[#EFF6FF]"
-                style={{ borderColor: BG.navy, color: BG.navy }}
-              >
-                See my work
-              </a>
+            <div className="flex flex-wrap items-center gap-6 mb-10">
+              <ArrowButton href="mailto:ahmer.subhani02@gmail.com">Get in touch</ArrowButton>
+              <TextLink href="#case-studies" down>See my work</TextLink>
             </div>
 
             {/* Stat badges */}
@@ -157,10 +159,10 @@ export default function DigitalMarketingPage() {
               ].map((badge) => (
                 <div
                   key={badge.label}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold"
-                  style={{ backgroundColor: BG.blue, color: BG.navy }}
+                  className="flex items-center gap-2 pl-1.5 pr-3.5 py-1.5 rounded-full text-[13px] font-medium"
+                  style={{ backgroundColor: GTM.tag, color: GTM.copperInk }}
                 >
-                  {badge.icon}
+                  <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5">{badge.icon}</span>
                   {badge.label}
                 </div>
               ))}
@@ -182,27 +184,29 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
-      <WaveDivider from={BG.warm} to={BG.blue} />
+      <WaveDivider from={GTM.warm} to={GTM.sand} />
 
       {/* ── Meet Ahmer ───────────────────────────────────────── */}
-      <section id="meet-ahmer" className="py-16" style={{ backgroundColor: BG.blue }}>
+      <section id="meet-ahmer" className="py-16" style={{ backgroundColor: GTM.sand }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">Meet Ahmer.</h2>
-            <p className="text-secondary text-sm mb-8">A quick intro to who I am and how I work.</p>
+            <SectionLabel index={1}>Intro</SectionLabel>
+            <GtmHeading lead="Meet" accent="Ahmer." className="mb-3" />
+            <p className="text-secondary text-[15px] mb-10">A quick intro to who I am and how I work.</p>
             <YouTubeEmbed url="https://www.loom.com/share/d47b9cdb3491461ba1a798e700038886" title="Meet Ahmer Mehmood" />
           </div>
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.blue} to={BG.warm} flip />
+      <WaveDivider from={GTM.sand} to={GTM.warm} flip />
 
       {/* ── Case Studies ─────────────────────────────────────── */}
-      <section id="case-studies" className="py-16" style={{ backgroundColor: BG.warm }}>
+      <section id="case-studies" className="py-16" style={{ backgroundColor: GTM.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">Case studies.</h2>
-            <p className="text-secondary text-sm mb-8">
+            <SectionLabel index={2}>Work</SectionLabel>
+            <GtmHeading lead="Case" accent="studies." className="mb-3" />
+            <p className="text-secondary text-[15px] mb-10">
               Digital marketing projects — SEO, Google Ads, and content.
             </p>
 
@@ -211,13 +215,13 @@ export default function DigitalMarketingPage() {
                 {dmProjects.map((project) => (
                   <div
                     key={project.slug}
-                    className="group relative bg-card border border-black/[0.08] rounded-2xl p-6 flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#1E3A5F]/30 hover:-translate-y-1.5"
+                    className="group relative bg-card border border-black/[0.08] rounded-2xl p-6 flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#a85a14]/30 hover:-translate-y-1.5"
                     style={{ width: '320px', flexShrink: 0 }}
                   >
                     {/* Left accent bar */}
                     <div
                       className="absolute left-0 inset-y-0 w-[3px] rounded-l-2xl origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out"
-                      style={{ backgroundColor: BG.navy }}
+                      style={{ backgroundColor: GTM.copper }}
                     />
 
                     <div className="flex flex-wrap gap-2 mb-3">
@@ -225,13 +229,13 @@ export default function DigitalMarketingPage() {
                         <span
                           key={cat}
                           className="px-2.5 py-0.5 text-xs font-semibold rounded-full"
-                          style={{ backgroundColor: BG.blue, color: BG.navy }}
+                          style={{ backgroundColor: GTM.tag, color: GTM.copperInk }}
                         >
                           {formatCategoryLabel(cat)}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-base font-semibold text-primary leading-snug mb-2">
+                    <h3 className="font-gtm-heading tracking-[-0.01em] text-base font-semibold text-primary leading-snug mb-2">
                       {project.title}
                     </h3>
                     <p className="text-sm text-muted mb-2 flex-1">{project.oneLineResult}</p>
@@ -248,25 +252,19 @@ export default function DigitalMarketingPage() {
                         <div
                           key={stat.label}
                           className="flex-1 rounded-xl p-3 text-center"
-                          style={{ backgroundColor: BG.blue }}
+                          style={{ backgroundColor: GTM.sand }}
                         >
                           <div className="flex items-center justify-center gap-1 mb-0.5">
-                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke={BG.navy} strokeWidth={2.5} viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke={GTM.copper} strokeWidth={2.5} viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                             </svg>
-                            <CountUp value={stat.value} className="text-lg font-semibold" style={{ color: BG.navy } as React.CSSProperties} />
+                            <CountUp value={stat.value} className="text-lg font-semibold" style={{ color: GTM.copperInk } as React.CSSProperties} />
                           </div>
                           <p className="text-xs text-secondary">{stat.label}</p>
                         </div>
                       ))}
                     </div>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="text-sm font-semibold transition-opacity hover:opacity-70"
-                      style={{ color: BG.navy }}
-                    >
-                      Read case study →
-                    </Link>
+                    <TextLink href={`/projects/${project.slug}`} className="self-start text-sm">Read case study</TextLink>
                   </div>
                 ))}
               </div>
@@ -278,13 +276,14 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.warm} to={BG.navy} />
+      <WaveDivider from={GTM.warm} to={GTM.charcoal} />
 
       {/* ── What I do ────────────────────────────────────────── */}
-      <section id="what-i-do" className="py-16" style={{ backgroundColor: BG.navy }}>
+      <section id="what-i-do" className="py-16" style={{ backgroundColor: GTM.charcoal }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">What I do.</h2>
+            <SectionLabel index={3} dark>Services</SectionLabel>
+            <GtmHeading lead="What I" accent="do." dark className="mb-3" />
             <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
               Five channels, one integrated approach.
             </p>
@@ -293,19 +292,19 @@ export default function DigitalMarketingPage() {
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="group bg-card border border-black/[0.08] rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-200">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: BG.blue, color: BG.navy }}
+                      className="w-9 h-9 rounded-[11px] flex items-center justify-center mb-4"
+                      style={{ backgroundColor: GTM.tag, color: GTM.copperInk }}
                     >
                       {WHAT_I_DO_ICONS[item.icon] ?? null}
                     </div>
-                    <h3 className="text-base font-semibold text-primary mb-2">{item.title}</h3>
+                    <h3 className="font-gtm-heading tracking-[-0.01em] text-base font-semibold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-muted leading-relaxed">{item.text}</p>
                     {/* Hover bullet reveal */}
                     <div className="overflow-hidden max-h-0 group-hover:max-h-28 transition-all duration-300 ease-out">
                       <ul className="mt-3 pt-3 border-t border-black/[0.06] space-y-1.5">
                         {(WHAT_I_DO_BULLETS[item.icon] ?? []).map((b) => (
                           <li key={b} className="text-xs text-secondary flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BG.navy }} />
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: GTM.copper }} />
                             {b}
                           </li>
                         ))}
@@ -318,18 +317,18 @@ export default function DigitalMarketingPage() {
                 <FadeIn delay={320} className="w-full sm:w-[calc(50%-8px)]">
                   <div className="group bg-card border border-black/[0.08] rounded-2xl p-6 hover:shadow-lg transition-all duration-200">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: BG.blue, color: BG.navy }}
+                      className="w-9 h-9 rounded-[11px] flex items-center justify-center mb-4"
+                      style={{ backgroundColor: GTM.tag, color: GTM.copperInk }}
                     >
                       {WHAT_I_DO_ICONS[whatIDo[4].icon] ?? null}
                     </div>
-                    <h3 className="text-base font-semibold text-primary mb-2">{whatIDo[4].title}</h3>
+                    <h3 className="font-gtm-heading tracking-[-0.01em] text-base font-semibold text-primary mb-2">{whatIDo[4].title}</h3>
                     <p className="text-sm text-muted leading-relaxed">{whatIDo[4].text}</p>
                     <div className="overflow-hidden max-h-0 group-hover:max-h-28 transition-all duration-300 ease-out">
                       <ul className="mt-3 pt-3 border-t border-black/[0.06] space-y-1.5">
                         {(WHAT_I_DO_BULLETS[whatIDo[4].icon] ?? []).map((b) => (
                           <li key={b} className="text-xs text-secondary flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BG.navy }} />
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: GTM.copper }} />
                             {b}
                           </li>
                         ))}
@@ -343,24 +342,15 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.navy} to={BG.warm} flip />
+      <WaveDivider from={GTM.charcoal} to={GTM.warm} flip />
 
       {/* ── Tools I use ──────────────────────────────────────── */}
-      <section id="tools" className="py-16" style={{ backgroundColor: BG.warm }}>
+      <section id="tools" className="py-16" style={{ backgroundColor: GTM.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: BG.blue, color: BG.navy }}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l5.654-4.654m5.896-1.183l3.184.53a1.5 1.5 0 01.82 2.503l-2.252 2.252a1.5 1.5 0 01-2.003.128l-.534-.4" />
-                </svg>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-primary">Tools I use.</h2>
-            </div>
-            <p className="text-secondary text-sm mb-10">
+            <SectionLabel index={4}>Tools</SectionLabel>
+            <GtmHeading lead="Tools I" accent="use." className="mb-3" />
+            <p className="text-secondary text-[15px] mb-10">
               What I reach for on digital marketing engagements.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -374,7 +364,7 @@ export default function DigitalMarketingPage() {
                       <span
                         key={tool}
                         className="px-3 py-1 text-xs font-semibold rounded-full cursor-default transition-all duration-150 hover:scale-105 hover:shadow-md"
-                        style={{ backgroundColor: BG.blue, color: BG.navy }}
+                        style={{ backgroundColor: GTM.tag, color: GTM.copperInk }}
                       >
                         {tool}
                       </span>
@@ -387,35 +377,26 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.warm} to={BG.blue} />
+      <WaveDivider from={GTM.warm} to={GTM.sand} />
 
       {/* ── Certifications ───────────────────────────────────── */}
-      <section id="certifications" className="py-16" style={{ backgroundColor: BG.blue }}>
+      <section id="certifications" className="py-16" style={{ backgroundColor: GTM.sand }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <div className="flex items-center gap-3 mb-12">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: '#dbeafe', color: BG.navy }}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                </svg>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-primary">Certifications</h2>
-            </div>
+            <SectionLabel index={5}>Certifications</SectionLabel>
+            <GtmHeading lead="My" accent="certifications." className="mb-12" />
             <div className="max-w-xl">
-              <div className="relative pl-8 space-y-8" style={{ borderLeft: '2px solid #93b4d4' }}>
+              <div className="relative pl-8 space-y-8" style={{ borderLeft: '2px solid #e0a26a' }}>
                 {rawData.recognition.map((item) => {
                   const provider = getProvider(item.text);
                   return (
                     <div key={`${item.year}-${item.text}`} className="relative">
                       <span
                         className="absolute -left-[41px] top-0.5 w-3 h-3 rounded-full border-2"
-                        style={{ backgroundColor: BG.blue, borderColor: BG.navy }}
+                        style={{ backgroundColor: GTM.sand, borderColor: GTM.copper }}
                       />
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-semibold" style={{ color: BG.navy }}>
+                        <span className="text-sm font-semibold" style={{ color: GTM.copperInk }}>
                           {item.year}
                         </span>
                         {provider && (
@@ -437,12 +418,13 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.blue} to={BG.warm} flip />
+      <WaveDivider from={GTM.sand} to={GTM.warm} flip />
 
       {/* ── Testimonials ─────────────────────────────────────── */}
-      <section id="testimonials" className="py-16" style={{ backgroundColor: BG.warm }}>
+      <section id="testimonials" className="py-16" style={{ backgroundColor: GTM.warm }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
+            <SectionLabel index={6}>Testimonials</SectionLabel>
             <TestimonialSlider
               testimonials={[
                 {
@@ -463,13 +445,14 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.warm} to={BG.blue} />
+      <WaveDivider from={GTM.warm} to={GTM.sand} />
 
       {/* ── Get in touch ─────────────────────────────────────── */}
-      <section id="contact" className="py-20" style={{ backgroundColor: BG.blue }}>
+      <section id="contact" className="py-20" style={{ backgroundColor: GTM.sand }}>
         <FadeIn>
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">Get in touch</h2>
+            <SectionLabel index={7}>Contact</SectionLabel>
+            <GtmHeading lead="Get in" accent="touch." className="mb-4" />
             <p className="text-muted text-sm mb-8 max-w-md">
               Open to digital marketing roles and projects in Australia. Reach out directly.
             </p>
@@ -478,7 +461,7 @@ export default function DigitalMarketingPage() {
                 <a
                   href="mailto:ahmer.subhani02@gmail.com"
                   className="flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity"
-                  style={{ color: BG.navy }}
+                  style={{ color: GTM.copperInk }}
                 >
                   <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75" />
@@ -490,14 +473,14 @@ export default function DigitalMarketingPage() {
               <a
                 href="tel:0438053591"
                 className="flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity"
-                style={{ color: BG.navy }}
+                style={{ color: GTM.copperInk }}
               >
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                 </svg>
                 0438 053 591
               </a>
-              <div className="flex items-center gap-3 font-semibold" style={{ color: BG.navy }}>
+              <div className="flex items-center gap-3 font-semibold" style={{ color: GTM.copperInk }}>
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -509,7 +492,7 @@ export default function DigitalMarketingPage() {
         </FadeIn>
       </section>
 
-      <WaveDivider from={BG.blue} to={BG.warm} flip />
-    </>
+      <WaveDivider from={GTM.sand} to={GTM.warm} flip />
+    </div>
   );
 }

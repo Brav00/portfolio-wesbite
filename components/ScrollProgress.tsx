@@ -1,7 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { useBrand } from '@/lib/useBrand';
 
 export function ScrollProgress() {
+  const brand = useBrand();
   const [pct, setPct] = useState(0);
   useEffect(() => {
     const onScroll = () => {
@@ -15,7 +17,7 @@ export function ScrollProgress() {
   return (
     <div
       className="fixed top-0 left-0 z-[60] h-[3px] transition-none pointer-events-none"
-      style={{ width: `${pct}%`, backgroundColor: '#1E3A5F' }}
+      style={{ width: `${pct}%`, backgroundColor: brand.primary }}
     />
   );
 }

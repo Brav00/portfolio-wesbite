@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useBrand } from '@/lib/useBrand';
 
 export function BackToTop() {
+  const brand = useBrand();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export function BackToTop() {
       aria-label="Back to top"
       className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300"
       style={{
-        backgroundColor: '#1E3A5F',
+        backgroundColor: brand.primary,
         color: '#fff',
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',

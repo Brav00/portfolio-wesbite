@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import type { Project } from '@/lib/types';
 import { getAllCategories, formatCategoryLabel } from '@/lib/utils';
-import { ProjectCardGrid } from '@/components/ProjectCard';
+import { CaseStudyCard } from '@/components/gtm/CaseStudyCard';
 
 type Props = {
   projects: Project[];
@@ -30,10 +30,10 @@ export function AllProjectsSection({ projects }: Props) {
       <div className="flex flex-wrap gap-2 mb-10">
         <button
           onClick={() => setActive([])}
-          className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+          className={`px-4 py-1.5 rounded-full text-[13.5px] font-medium transition-colors ${
             active.length === 0
-              ? 'bg-primary text-white'
-              : 'bg-accent-tag text-accent hover:bg-accent hover:text-white'
+              ? 'bg-[#a85a14] text-white shadow-[0_8px_18px_-10px_rgba(168,90,20,0.8)]'
+              : 'bg-accent-tag text-accent hover:bg-[#f5e2c4]'
           }`}
         >
           All
@@ -42,10 +42,10 @@ export function AllProjectsSection({ projects }: Props) {
           <button
             key={cat}
             onClick={() => toggle(cat)}
-            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-[13.5px] font-medium transition-colors ${
               active.includes(cat)
-                ? 'bg-primary text-white'
-                : 'bg-accent-tag text-accent hover:bg-accent hover:text-white'
+                ? 'bg-[#a85a14] text-white shadow-[0_8px_18px_-10px_rgba(168,90,20,0.8)]'
+                : 'bg-accent-tag text-accent hover:bg-[#f5e2c4]'
             }`}
           >
             {formatCategoryLabel(cat)}
@@ -57,7 +57,7 @@ export function AllProjectsSection({ projects }: Props) {
       {filtered.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => (
-            <ProjectCardGrid key={project.slug} project={project} />
+            <CaseStudyCard key={project.slug} project={project} />
           ))}
         </div>
       ) : (

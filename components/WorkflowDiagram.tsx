@@ -1,5 +1,5 @@
 import type { WorkflowStep } from '@/lib/types';
-import { BG } from '@/lib/colors';
+import { GTM } from '@/lib/colors';
 
 type Props = {
   steps: WorkflowStep[];
@@ -9,7 +9,7 @@ export function WorkflowDiagram({ steps }: Props) {
   return (
     <div
       className="mb-10 rounded-2xl p-5 md:p-8"
-      style={{ backgroundColor: BG.blue }}
+      style={{ backgroundColor: GTM.sand }}
     >
       {steps.map((step, i) => (
         <div key={step.title}>
@@ -19,7 +19,7 @@ export function WorkflowDiagram({ steps }: Props) {
                 ? 'shadow-md'
                 : 'bg-white border border-black/[0.06] shadow-sm hover:shadow-lg hover:-translate-y-0.5'
             }`}
-            style={step.isResult ? { backgroundColor: BG.navy } : undefined}
+            style={step.isResult ? { backgroundColor: GTM.charcoal } : undefined}
           >
             {/* Step marker */}
             <div
@@ -27,7 +27,7 @@ export function WorkflowDiagram({ steps }: Props) {
               style={
                 step.isResult
                   ? { backgroundColor: 'rgba(255,255,255,0.15)', color: '#fff' }
-                  : { backgroundColor: BG.blue, color: BG.navy }
+                  : { backgroundColor: GTM.tag, color: GTM.copperInk }
               }
             >
               {step.isResult ? (
@@ -41,8 +41,8 @@ export function WorkflowDiagram({ steps }: Props) {
 
             <div>
               <p
-                className="font-semibold mb-0.5"
-                style={{ color: step.isResult ? '#fff' : BG.navy }}
+                className="font-gtm-heading tracking-[-0.01em] font-semibold mb-0.5"
+                style={{ color: step.isResult ? '#fff' : GTM.charcoal }}
               >
                 {step.title}
               </p>
@@ -60,7 +60,7 @@ export function WorkflowDiagram({ steps }: Props) {
               <svg
                 className="w-4 h-4"
                 fill="none"
-                stroke={BG.navy}
+                stroke={GTM.copper}
                 strokeOpacity={0.35}
                 strokeWidth={2.5}
                 viewBox="0 0 24 24"

@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useBrand } from '@/lib/useBrand';
 
 type Props = { text: string };
 
 export function CopyButton({ text }: Props) {
+  const brand = useBrand();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -18,8 +20,10 @@ export function CopyButton({ text }: Props) {
       onClick={handleCopy}
       aria-label={copied ? 'Copied!' : 'Copy email address'}
       title={copied ? 'Copied!' : 'Copy to clipboard'}
-      className="ml-1 p-1 rounded-md transition-all duration-200 hover:bg-[#EFF6FF]"
-      style={{ color: copied ? '#166534' : '#1E3A5F' }}
+      className="ml-1 p-1 rounded-md transition-all duration-200"
+      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = brand.soft)}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '')}
+      style={{ color: copied ? '#166534' : brand.primary }}
     >
       {copied ? (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">

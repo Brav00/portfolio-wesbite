@@ -6,6 +6,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   outbound: 'Outbound',
   positioning: 'Positioning',
   'local-seo': 'Local SEO',
+  'ai-marketing': 'AI Marketing',
+  'google-ads': 'Google Ads',
 };
 
 export function formatCategoryLabel(slug: string): string {
@@ -26,4 +28,11 @@ export function getYouTubeId(url: string): string | null {
 export function getLoomId(url: string): string | null {
   const match = url.match(/loom\.com\/share\/([a-zA-Z0-9]+)/);
   return match?.[1] ?? null;
+}
+
+/** The main site is GTM-only. Projects in these categories belong to the /digital-marketing funnel. */
+const NON_GTM_CATEGORIES = ['seo', 'local-seo', 'google-ads'];
+
+export function isGtmProject(project: Project): boolean {
+  return !project.categories.some((c) => NON_GTM_CATEGORIES.includes(c));
 }

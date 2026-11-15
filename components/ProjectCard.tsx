@@ -11,7 +11,7 @@ export function ProjectCard({ project }: Props) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block bg-card rounded-xl border border-black/[0.08] overflow-hidden hover:border-black/20 transition-colors flex-shrink-0 w-72 md:w-80"
+      className="group block bg-card rounded-2xl border border-black/[0.08] overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#a85a14]/30 flex-shrink-0 w-72 md:w-80"
     >
       {/* Thumbnail */}
       <div className="relative w-full aspect-video bg-dark-block overflow-hidden">
@@ -51,12 +51,12 @@ export function ProjectCard({ project }: Props) {
         </div>
 
         {/* Title */}
-        <h3 className="text-sm font-semibold text-primary leading-snug mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-gtm-heading tracking-[-0.01em] text-[15px] font-semibold text-primary leading-snug mb-2 group-hover:text-accent transition-colors">
           {project.title}
         </h3>
 
         {/* One-line result */}
-        <p className="text-xs text-secondary">{project.oneLineResult}</p>
+        <p className="text-[13px] leading-relaxed text-secondary">{project.oneLineResult}</p>
       </div>
     </Link>
   );
@@ -67,7 +67,7 @@ export function ProjectCardGrid({ project }: Props) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block bg-card rounded-xl border border-black/[0.08] overflow-hidden hover:border-black/20 transition-colors"
+      className="group block bg-card rounded-2xl border border-black/[0.08] overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#a85a14]/30"
     >
       {/* Thumbnail */}
       <div className="relative w-full aspect-video bg-dark-block overflow-hidden">
@@ -103,10 +103,10 @@ export function ProjectCardGrid({ project }: Props) {
             </span>
           ))}
         </div>
-        <h3 className="text-sm font-semibold text-primary leading-snug mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-gtm-heading tracking-[-0.01em] text-[15px] font-semibold text-primary leading-snug mb-2 group-hover:text-accent transition-colors">
           {project.title}
         </h3>
-        <p className="text-xs text-secondary">{project.oneLineResult}</p>
+        <p className="text-[13px] leading-relaxed text-secondary">{project.oneLineResult}</p>
       </div>
     </Link>
   );
