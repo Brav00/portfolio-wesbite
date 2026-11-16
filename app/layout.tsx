@@ -26,13 +26,13 @@ const geist = Geist({ variable: '--font-geist', subsets: ['latin'], display: 'sw
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'], weight: ['500'], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Ahmer Mehmood — SEO, GTM, and outbound consultant',
+  title: 'Ahmer Mehmood — GTM Engineer | Cold Email & Outbound Systems',
   description:
-    '15+ years helping home services and B2B companies grow through SEO, GTM strategy, and outbound programmes. 9+ documented case studies.',
+    'GTM engineer building pipeline for B2B companies through cold email, data enrichment and automation. 6 years in growth and outbound, with documented case studies and results.',
   openGraph: {
-    title: 'Ahmer Mehmood — SEO, GTM, and outbound consultant',
+    title: 'Ahmer Mehmood — GTM Engineer | Cold Email & Outbound Systems',
     description:
-      '15+ years helping home services and B2B companies grow through SEO, GTM strategy, and outbound programmes.',
+      'GTM engineer building pipeline for B2B companies through cold email, data enrichment and automation. 6 years in growth and outbound, with documented case studies and results.',
     url: 'https://ahmermehmood.vercel.app',
     siteName: 'Ahmer Mehmood',
     type: 'website',

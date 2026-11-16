@@ -237,21 +237,30 @@
     },
     {
       "slug": "arken-cold-email",
-      "title": "Cold Outbound Built from Scratch for a UK SEO Agency",
+      "title": "Rebuilding and Scaling Cold Email for a UK Local SEO Agency",
       "client": "Arken Digital",
       "industry": "SEO agency (Bristol, UK)",
       "categories": ["outbound"],
       "thumbnail": "/images/projects/arken-cold-email/thumb.jpg",
-      "videoUrl": "",
-      "oneLineResult": "Built a cold outbound engine from scratch that delivered a steady stream of qualified leads",
+      "videoUrl": "https://www.loom.com/share/4591e39648204ba5802f2d66642d2e35",
+      "oneLineResult": "Rebuilt a burned-out cold email system and scaled it to 1,000 emails a day with 1 positive reply per 80 leads",
       "stats": [
-        { "value": "5-7%", "label": "Response rate" },
-        { "value": "15-25%", "label": "Positive reply rate" }
+        { "value": "~2%", "label": "Reply rate" },
+        { "value": "~41%", "label": "Positive reply rate" }
       ],
-      "problem": "Arken, an SEO agency for budget-conscious SMBs, needed to reach local UK businesses and book meetings to support sales growth, with no outbound system in place.",
-      "solution": "I built the outbound system end to end: set up email accounts and DNS records (SPF, DKIM, DMARC), built and segmented ICP lead lists, wrote personalized sequences, monitored inbox placement, and handled responses and handoffs.",
-      "result": "Campaigns achieved 5 to 7% response and 15 to 25% positive reply rates (around 1 positive reply per 80 emails), creating a scalable, repeatable system that produced steady qualified leads.",
-      "screenshots": ["/images/projects/arken-cold-email/screenshot.jpg"],
+      "problem": "Arken, a 15-year-old local SEO agency serving law firms, accountants and roofers, was running cold email in-house with a generic \"free SEO audit\" offer. The market was saturated with that angle, so reply rates tanked, email accounts got burned, and the founder couldn't find a fix.",
+      "solution": "I started with deliverability: new email infrastructure through Premium Inboxes and ScaledMail, spread across multiple ESPs to keep domains healthy. Then I repackaged the offer. In Clay, I connected the DataForSEO and Serper.dev APIs to run a competitor keyword analysis for every lead. Each email named their top local competitor, a high-value keyword that competitor was beating them on, and both ranking positions. The CTA was low-friction: reply and I'll send a short video on how to outrank them.",
+      "result": "The value-first angle immediately averaged 1 positive reply per 80 leads contacted, with a reply rate of around 2% and around 41% of replies positive. After validating it across roofers, accountants and lawyers, we safely scaled to 1,000 emails per day.",
+      "tools": ["Clay", "DataForSEO API", "Serper.dev API", "Premium Inboxes", "ScaledMail"],
+      "workflow": [
+        { "title": "Rebuild infrastructure", "description": "New inboxes across multiple ESPs" },
+        { "title": "Audit the old offer", "description": "Retire the saturated free audit angle" },
+        { "title": "Competitor keyword analysis", "description": "Clay + DataForSEO + Serper.dev per lead" },
+        { "title": "Personalized outreach", "description": "Competitor, keyword and both rankings" },
+        { "title": "Validate and scale", "description": "Test across verticals, ramp to 1,000/day" },
+        { "title": "Campaign results", "description": "1 positive reply per 80 leads", "isResult": true }
+      ],
+      "screenshots": ["/images/projects/arken-cold-email/screenshot-1.jpg"],
       "testimonial": null,
       "featured": false
     },

@@ -16,12 +16,12 @@ import { CaseStudyCard } from '@/components/gtm/CaseStudyCard';
 
 // GTM engineering case studies, cold email first.
 const GTM_PROJECT_SLUGS = [
+  'arken-cold-email',
   'logeix-cold-email',
   'syntech-cold-email',
   'viralfire-outbound',
   'techling-cold-email',
   'plus-social-cold-email',
-  'arken-cold-email',
   'techling-head-of-growth',
   'techling-linkedin-outreach',
 ];
