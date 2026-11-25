@@ -1,0 +1,192 @@
+{
+  "systems": [
+    {
+      "slug": "gtm-engine",
+      "title": "Automated End-to-End Outbound Engine",
+      "shortName": "gtm-engine",
+      "tagline": "A vendor-agnostic Python orchestration pipeline and Claude Code operator skill that turns raw lead sources (Clay, Cargo, Google Sheets) into verified, deliverability-gated Smartlead campaigns, with zero manual CSV juggling.",
+      "status": "Production",
+      "githubUrl": "https://github.com/Brav00/Gtm-systems-engine",
+      "categories": ["outbound", "automation", "deliverability"],
+      "stack": ["Python", "Pydantic V2", "Port & Adapter Architecture", "Smartlead API", "Greenhouse API", "Claude Code Skills", "GitHub Actions"],
+      "stats": [
+        { "value": "166+", "label": "Automated unit & integration tests" },
+        { "value": "4", "label": "Guardrailed subsystems" },
+        { "value": "1", "label": "CLI command, end to end" },
+        { "value": "0", "label": "Smartlead writes when a guardrail fails" }
+      ],
+      "highlights": [
+        { "label": "Architecture", "detail": "Port & Adapter (Hexagonal) + Pydantic V2 contracts" },
+        { "label": "Reliability", "detail": "166+ automated unit & integration tests across all subsystems" },
+        { "label": "Safety", "detail": "Draft-first provisioning, pre-flight guardrails, exit codes (`0` / `1` / `2`) & masked credentials" },
+        { "label": "Operation", "detail": "One-command CLI (`run_pipeline.py`) & conversational control (`SKILL.md`)" }
+      ],
+      "why": [
+        "Most outbound agencies lose hours every week to fragmented manual operations: exporting CSVs from Clay, running separate email verifiers, checking domain health across spreadsheets, and uploading leads into sequencers by hand. Worse, one unverified catch-all list or degraded sending domain can quietly burn an entire client's domain reputation.",
+        "`gtm-engine` replaces manual spreadsheet stitching with a deterministic, fault-tolerant conveyor belt. Every stage enforces strict Pydantic V2 schema validation, clean Port & Adapter boundaries, and hard safety guardrails before touching a live sending account."
+      ],
+      "architecture": [
+        {
+          "title": "Lead & signal sources",
+          "nodes": [
+            { "label": "Clay / Cargo / Enrichment" },
+            { "label": "Google Sheets / CSV / JSON / Mock" }
+          ]
+        },
+        {
+          "title": "Claude Code operator",
+          "nodes": [
+            { "label": "run-gtm-campaign SKILL.md", "detail": "Desktop or mobile control" }
+          ]
+        },
+        {
+          "title": "run_pipeline.py orchestrator",
+          "nodes": [
+            { "label": "Stage 1: LeadSourcePort", "detail": "Normalize email, domain & hook" },
+            { "label": "Stage 2: Verification waterfall", "detail": "Dedupe + syntax + verifier" },
+            { "label": "Stage 3: Deliverability gate", "detail": "Live DNS + Smartlead warm-up" },
+            { "label": "Guardrails pass?", "detail": "Valid leads + ready domains. No → Exit 1 (safe block)", "kind": "decision" },
+            { "label": "Stage 4: Smartlead provisioner", "detail": "DRAFTED, or START with --launch" }
+          ]
+        },
+        {
+          "title": "Audit trail, sending & alerts",
+          "nodes": [
+            { "label": "runs/ artifact folder", "detail": "Stage JSONs + run_summary.json", "kind": "output" },
+            { "label": "Smartlead campaign", "detail": "Healthy inboxes + valid leads", "kind": "output" },
+            { "label": "Webhook alert", "detail": "Slack / n8n / Clay", "kind": "output" }
+          ]
+        }
+      ],
+      "orchestrator": {
+        "title": "Orchestrator & operator (`run_pipeline.py` + `SKILL.md`)",
+        "points": [
+          {
+            "label": "Single-command execution",
+            "detail": "Connects ingestion, verification, domain readiness and campaign provisioning in one CLI command (`python -m gtm_engine.cli.run_pipeline`) with `--mode mock` (offline rehearsal) or `--mode live` (real API execution)."
+          },
+          {
+            "label": "Conversational playbook",
+            "detail": "`.claude/skills/run-gtm-campaign/SKILL.md` lets me trigger and supervise campaigns in plain English from desktop or mobile. The skill validates inputs upfront, stays in **draft mode** unless `--launch` is explicitly requested, reuses `--campaign-id` on follow-up launches to prevent duplicate campaigns, and never echoes raw API keys."
+          },
+          {
+            "label": "Immutable audit trail",
+            "detail": "Every execution creates an isolated run directory (`runs/<campaign-slug>/<timestamp>/`) saving `01_raw_leads.json`, `02_verification_report.json`, `03_readiness_report.json`, `04_provisioning_report.json` and `run_summary.json`, plus optional webhook delivery."
+          }
+        ],
+        "exitCodes": [
+          { "code": "0", "meaning": "Campaign provisioned successfully (`DRAFTED` or `START`)." },
+          { "code": "1", "meaning": "Blocked cleanly by a safety guardrail (zero ready domains or zero valid leads). Zero changes made in Smartlead." },
+          { "code": "2", "meaning": "Missing credentials, unreadable source/sheet, or upstream runtime error." }
+        ]
+      },
+      "subsystems": [
+        {
+          "title": "Public-data intent signal collector",
+          "summary": "Monitors target companies' public job boards for active buying triggers, such as new RevOps hires, sales leadership changes or demand-gen team expansion, and converts matches into deduplicated outreach hooks with **zero API keys or scraping fees**.",
+          "flow": [
+            { "nodes": [{ "label": "Target companies + keywords" }] },
+            { "nodes": [{ "label": "Live Greenhouse API fetch", "detail": "Fault-isolated per company" }] },
+            { "nodes": [{ "label": "Whole-word keyword", "detail": "& exclusion filter" }] },
+            { "nodes": [{ "label": "Deterministic signal ID", "detail": "Domain + type + role hash" }] },
+            { "nodes": [{ "label": "Contextual 'why now' hook", "detail": "+ direct evidence URL" }] },
+            { "nodes": [{ "label": "SignalBatchReport JSON", "detail": "+ webhook push", "kind": "output" }] }
+          ],
+          "specs": [
+            { "label": "Inputs", "detail": "`targets.json` (company names, domains, Greenhouse board tokens), `--keywords` (e.g. `RevOps,Head of Sales,Demand Gen`) and `--exclude-keywords` (e.g. `Intern,Coordinator`)." },
+            { "label": "Core logic", "detail": "Queries public Greenhouse ATS JSON endpoints via `JobBoardPort`, applies case-insensitive whole-word matching, and generates a tailored \"why now\" opening sentence paired with the live job posting URL." },
+            { "label": "Deduplication & fault isolation", "detail": "Computes a deterministic `signal_id` hash (`company_domain + signal_type + normalized_role`) so multi-city postings or repeated daily scans never create duplicate signals. If one board returns `404` or times out, the error is recorded per company while the rest of the batch completes." },
+            { "label": "Output artifact", "detail": "`SignalBatchReport` JSON (`signals_detected`, `signals_deduplicated`, `company_errors`, `signals[]` with `signal_hook` and `evidence_url`) + optional webhook notification." }
+          ]
+        },
+        {
+          "title": "Universal lead ingestion & verification waterfall",
+          "summary": "Connects to any upstream data source (Clay, Cargo, Google Sheets, CSV or JSON), normalizes messy column headers into a unified `LeadInput` contract, and cascades verification across providers to protect API credits and sender reputation.",
+          "flow": [
+            { "nodes": [{ "label": "Clay / Cargo / Sheet / CSV / JSON" }] },
+            { "nodes": [{ "label": "LeadSourcePort adapter", "detail": "Header mapping & domain cleaning" }] },
+            { "nodes": [{ "label": "In-run deduplication", "detail": "+ free local syntax gate" }] },
+            { "nodes": [{ "label": "Verification waterfall", "detail": "Primary → fallback provider" }] },
+            { "nodes": [{ "label": "Sorted output", "detail": "Valid | Risky (held) | Invalid", "kind": "output" }] }
+          ],
+          "specs": [
+            { "label": "Inputs", "detail": "`--source-type` (`mock`, `file`, `gsheet`) and `--source-ref` (local `.csv`/`.json` path or Google Sheets link/ID), plus `VERIFIER_API_KEY` in live mode." },
+            { "label": "Header & field normalization", "detail": "`FileLeadSourceAdapter` and `GoogleSheetCsvLeadSourceAdapter` automatically map varied headers (`Email`, `Work Email`, `Email Address` → `email`; `Domain`, `Website` → normalized `company_domain`, stripping `https://www.` and paths; `Company Name` → `company_name`; `Signal Hook` → `signal_hook`)." },
+            { "label": "Waterfall & credit guardrails", "detail": "Deduplicates repeated emails in-run and filters malformed syntax locally at zero cost before calling paid APIs (e.g. MillionVerifier). Includes a credential circuit breaker that halts immediately on auth failure (`Exit 2`) instead of burning retries across the whole list, and masks sheet URLs/tokens in error logs." },
+            { "label": "Output artifacts", "detail": "`01_raw_leads.json` + `02_verification_report.json`, sorting every record into `valid` (cleared for outreach), `risky` (catch-all domains held back from sending), `invalid` (hard bounces removed) or `unknown`." }
+          ]
+        },
+        {
+          "title": "Deliverability & warm-up readiness gate",
+          "summary": "Audits sending infrastructure in real time before any campaign is created, combining live DNS record verification with mailbox-level warm-up and spam metrics from Smartlead.",
+          "flow": [
+            { "nodes": [{ "label": "Sending domains" }] },
+            {
+              "nodes": [
+                { "label": "Live DNS audit", "detail": "MX, SPF, DKIM, DMARC, CNAME" },
+                { "label": "Smartlead warm-up check", "detail": "Reputation score & spam rate" }
+              ]
+            },
+            { "nodes": [{ "label": "Domain health classifier" }] },
+            {
+              "nodes": [
+                { "label": "Active", "detail": "30/day per inbox", "kind": "output" },
+                { "label": "Throttled", "detail": "15/day per inbox", "kind": "output" },
+                { "label": "Quarantined", "detail": "0/day, blocked", "kind": "fail" }
+              ]
+            }
+          ],
+          "specs": [
+            { "label": "Inputs", "detail": "Comma-separated sending domains (`--domains acme-mail.com,acme-outreach.com`) and `SMARTLEAD_API_KEY`." },
+            { "label": "Technical DNS checks", "detail": "Queries live DNS resolvers to verify MX records, SPF policy, DKIM selectors, DMARC enforcement and custom tracking CNAME configuration for each sending domain." },
+            { "label": "Warm-up & capacity scoring", "detail": "Pulls active mailbox warm-up scores and spam complaints from Smartlead, classifying each domain and calculating safe daily volume: **Active** (`30 emails/day` per inbox), **Throttled** (`15 emails/day` for borderline warm-up) or **Quarantined** (`0 emails/day`, completely blocked on DNS or reputation failure)." },
+            { "label": "Output artifact", "detail": "`03_readiness_report.json` containing per-domain pass/fail diagnostics, exact failure codes (e.g. `dns:missing_mx`), healthy inbox IDs and total safe daily sending capacity." }
+          ]
+        },
+        {
+          "title": "Guardrailed Smartlead campaign provisioner",
+          "summary": "Acts as the final execution gate, ensuring campaigns are only created or updated when both healthy sending capacity and verified leads exist.",
+          "flow": [
+            {
+              "nodes": [
+                { "label": "Ready inboxes", "detail": "From stage 3" },
+                { "label": "Valid leads", "detail": "From stage 2" }
+              ]
+            },
+            { "nodes": [{ "label": "Pre-flight guardrails", "detail": "Capacity > 0 & valid leads > 0?", "kind": "decision" }] },
+            { "edge": "Pass", "nodes": [{ "label": "Create or reuse campaign", "detail": "Default: DRAFTED" }] },
+            { "nodes": [{ "label": "Attach healthy inboxes", "detail": "+ batch upload leads & hooks", "kind": "output" }] }
+          ],
+          "failBranch": {
+            "from": "Pre-flight guardrails",
+            "label": "Fail",
+            "node": { "label": "Abort safely (Exit 1)", "detail": "Zero Smartlead writes", "kind": "fail" }
+          },
+          "specs": [
+            { "label": "Inputs", "detail": "Verified `valid` leads from subsystem 2, healthy inbox IDs from subsystem 3, `--campaign-name`, optional `--campaign-id` and optional `--launch` flag." },
+            { "label": "Hard pre-flight guardrails", "detail": "Aborts immediately with **Exit Code 1** (`no_ready_domains_available` or `no_valid_leads_to_upload`) before making any write calls to Smartlead if all domains are quarantined or zero valid leads remain." },
+            { "label": "Draft-first & idempotent execution", "detail": "Creates a new campaign in `DRAFTED` status by default (only setting status to `START` when `--launch` is explicitly passed), attaches strictly the healthy inboxes from stage 3, and uploads verified leads, including `company_name`, `company_domain` and `signal_hook`, in rate-safe batches of 100." },
+            { "label": "Output artifacts", "detail": "`04_provisioning_report.json` + `run_summary.json` (campaign ID, status, attached inbox count, uploaded lead count, daily sending cap) + optional Slack/n8n/Clay webhook alert." }
+          ]
+        }
+      ],
+      "playbooks": [
+        {
+          "name": "Public hiring-intent outbound",
+          "flow": ["Subsystem 1 detects RevOps/Sales hires", "Clay enriches decision-makers", "Subsystems 2–4 verify and stage the campaign"],
+          "outcome": "Timely \"why now\" outreach backed by live job posting evidence"
+        },
+        {
+          "name": "Credit-safe enrichment hygiene",
+          "flow": ["High-volume Clay/Cargo export", "Google Sheet staging", "Subsystem 2 dedupes, syntax-filters and waterfalls verification"],
+          "outcome": "Zero wasted verification credits and zero catch-all bounce spikes"
+        },
+        {
+          "name": "Multi-client domain protection",
+          "flow": ["Scheduled pre-flight audit across client sending domains", "Subsystem 3 classifies every domain", "Campaign provisioning runs only on healthy inboxes"],
+          "outcome": "Automatic quarantine of degraded domains before reputation damage occurs"
+        }
+      ]
+    }
+  ]
+}

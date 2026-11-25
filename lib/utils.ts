@@ -8,6 +8,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   'local-seo': 'Local SEO',
   'ai-marketing': 'AI Marketing',
   'google-ads': 'Google Ads',
+  automation: 'Automation',
+  deliverability: 'Deliverability',
 };
 
 export function formatCategoryLabel(slug: string): string {

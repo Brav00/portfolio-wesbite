@@ -60,10 +60,13 @@ export function Header() {
         { href: `${base}#stack`, label: 'Stack' },
         { href: `${base}#story`, label: 'Story' },
         { href: `${base}#testimonials`, label: 'Testimonials' },
+        { href: '/playbooks', label: 'Playbooks' },
       ];
 
   const isActive = (href: string) =>
-    (isDigitalMarketing || isHome) && activeSection === href.split('#')[1];
+    href === '/playbooks'
+      ? pathname.startsWith('/playbooks')
+      : (isDigitalMarketing || isHome) && activeSection === href.split('#')[1];
 
   return (
     <header
